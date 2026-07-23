@@ -1,0 +1,3 @@
+Use core
+Use top_cache_axi
+DON'T use top_tcm_*
