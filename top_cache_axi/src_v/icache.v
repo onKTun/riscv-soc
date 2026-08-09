@@ -169,6 +169,9 @@ localparam STATE_RELOOKUP    = 2'd3;
 reg [STATE_W-1:0]           next_state_r;
 reg [STATE_W-1:0]           state_q;
 
+// Icarus Verilog requires declarations before procedural references.
+reg [ICACHE_TAG_REQ_LINE_W-1:0] flush_addr_q;
+
 reg                         invalidate_q;
 
 reg [0:0]  replace_way_q;
@@ -384,8 +387,6 @@ u_data1
 //-----------------------------------------------------------------
 // Flush counter
 //-----------------------------------------------------------------
-reg [ICACHE_TAG_REQ_LINE_W-1:0] flush_addr_q;
-
 always @ (posedge clk_i or posedge rst_i)
 if (rst_i)
     flush_addr_q <= {(ICACHE_TAG_REQ_LINE_W){1'b0}};
