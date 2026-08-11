@@ -1,0 +1,17 @@
+# SystemC::Coverage-3
+C 'ftestbench/sva/riscv_top_tb.svl102n27pagev_user/riscv_top_sva_checkeroCHK_008_dcache_fsm_Chriscv_top_tb.dut.sva_checker.CHK_008_dcache_fsm_C' 9
+C 'ftestbench/sva/riscv_top_tb.svl109n29pagev_user/riscv_top_sva_checkeroCHK_009_reset_states_Chriscv_top_tb.dut.sva_checker.CHK_009_reset_states_C' 5
+C 'ftestbench/sva/riscv_top_tb.svl116n33pagev_user/riscv_top_sva_checkeroCHK_010_icache_read_only_Chriscv_top_tb.dut.sva_checker.CHK_010_icache_read_only_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl123n32pagev_user/riscv_top_sva_checkeroCHK_011_fetch_alignment_Chriscv_top_tb.dut.sva_checker.CHK_011_fetch_alignment_C' 17
+C 'ftestbench/sva/riscv_top_tb.svl130n34pagev_user/riscv_top_sva_checkeroCHK_012_core_data_request_Chriscv_top_tb.dut.sva_checker.CHK_012_core_data_request_C' 4
+C 'ftestbench/sva/riscv_top_tb.svl138n35pagev_user/riscv_top_sva_checkeroCHK_013_icache_refill_exit_Chriscv_top_tb.dut.sva_checker.CHK_013_icache_refill_exit_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl145n32pagev_user/riscv_top_sva_checkeroCHK_014_icache_relookup_Chriscv_top_tb.dut.sva_checker.CHK_014_icache_relookup_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl154n35pagev_user/riscv_top_sva_checkeroCHK_015_dcache_refill_exit_Chriscv_top_tb.dut.sva_checker.CHK_015_dcache_refill_exit_C' 1
+C 'ftestbench/sva/riscv_top_tb.svl168n29pagev_user/riscv_top_sva_checkeroCHK_016_axi_response_Chriscv_top_tb.dut.sva_checker.CHK_016_axi_response_C' 25
+C 'ftestbench/sva/riscv_top_tb.svl52n28pagev_user/riscv_top_sva_checkeroCHK_001_reset_quiet_Chriscv_top_tb.dut.sva_checker.CHK_001_reset_quiet_C' 5
+C 'ftestbench/sva/riscv_top_tb.svl58n30pagev_user/riscv_top_sva_checkeroCHK_002_icache_refill_Chriscv_top_tb.dut.sva_checker.CHK_002_icache_refill_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl65n32pagev_user/riscv_top_sva_checkeroCHK_003_icache_response_Chriscv_top_tb.dut.sva_checker.CHK_003_icache_response_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl73n28pagev_user/riscv_top_sva_checkeroCHK_004_dcache_read_Chriscv_top_tb.dut.sva_checker.CHK_004_dcache_read_C' 1
+C 'ftestbench/sva/riscv_top_tb.svl81n29pagev_user/riscv_top_sva_checkeroCHK_005_dcache_write_Chriscv_top_tb.dut.sva_checker.CHK_005_dcache_write_C' 1
+C 'ftestbench/sva/riscv_top_tb.svl88n32pagev_user/riscv_top_sva_checkeroCHK_006_dcache_response_Chriscv_top_tb.dut.sva_checker.CHK_006_dcache_response_C' 2
+C 'ftestbench/sva/riscv_top_tb.svl95n27pagev_user/riscv_top_sva_checkeroCHK_007_icache_fsm_Chriscv_top_tb.dut.sva_checker.CHK_007_icache_fsm_C' 16

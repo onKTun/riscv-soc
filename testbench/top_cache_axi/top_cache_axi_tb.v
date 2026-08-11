@@ -1,6 +1,13 @@
 `timescale 1ns/1ps
 
-module top_cache_axi_tb;
+`ifndef TB_MODULE_NAME
+`define TB_MODULE_NAME top_cache_axi_tb
+`endif
+`ifndef TB_VCD_FILENAME
+`define TB_VCD_FILENAME "top_cache_axi_tb.vcd"
+`endif
+
+module `TB_MODULE_NAME;
     localparam RESULT_ADDR = 32'h8000_0104;
     localparam MAX_CYCLES = 3000;
     reg clk = 1'b0;
@@ -118,8 +125,8 @@ module top_cache_axi_tb;
         i_memory.mem[13] = 32'h800003b7; // lui  x7, 0x80000
         i_memory.mem[14] = 32'h1063a223; // sw   x6, 0x104(x7)
         i_memory.mem[15] = 32'h0000006f; // jal  x0, 0
-        $dumpfile("top_cache_axi_tb.vcd");
-        $dumpvars(0, top_cache_axi_tb);
+        $dumpfile(`TB_VCD_FILENAME);
+        $dumpvars(0, `TB_MODULE_NAME);
         repeat (5) @(posedge clk);
         #1 rst = 1'b0;
     end
