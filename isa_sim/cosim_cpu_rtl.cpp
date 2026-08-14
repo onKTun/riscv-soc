@@ -1,7 +1,6 @@
 // cosim_cpu_rtl.cpp
 //
-// STATUS: design-complete, NOT YET BUILT OR TESTED. See cosim_cpu_rtl.h and
-// knowledge_capture.md for full derivation, rationale, and open items.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

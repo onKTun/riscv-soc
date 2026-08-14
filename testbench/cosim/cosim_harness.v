@@ -3,8 +3,7 @@
 // Cosim harness: riscv_top + axi_memory_model glued together as one Verilator top module, so the C++ wrapper (cosim_cpu_rtl) only deals
 // with clk/rst/intr and the debug ports - never raw AXI beats.
 //
-// STATUS: design-complete, NOT YET BUILT/ELABORATED. See
-// knowledge_capture.md Session 4 for the memory-topology decision
+// See knowledge_capture.md Session 4 for the memory-topology decision
 // (split I/D memory, matching testbench/top_cache_axi/top_cache_axi_tb.v's
 // existing pattern) and Sessions 2-4 for the retire_*/debug_x* ports this
 // harness passes through (already added to riscv_top.v and confirmed

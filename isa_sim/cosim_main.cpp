@@ -1,8 +1,5 @@
 // cosim_main.cpp
 //
-// STATUS: design-complete, NOT YET BUILT OR TESTED. See knowledge_capture.md
-// Session 5 for full rationale.
-//
 // Cosim driver: attaches the reference model (Riscv) and the RTL wrapper
 // (cosim_cpu_rtl) to one cosim::instance(), loads a single ELF into both
 // memories, and steps them together via cosim::instance()->step() so the

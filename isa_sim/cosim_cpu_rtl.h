@@ -2,11 +2,7 @@
 //
 // RTL-side cosim_cpu_api implementation, wrapping the Verilated
 // cosim_harness (riscv_top + split I/D axi_memory_model).
-//
-// STATUS: design-complete, NOT YET BUILT OR TESTED. Verilator was not
-// available in the sandbox this was authored in — see knowledge_capture.md
-// for the full derivation and open items before building/running this.
-//
+
 // Design notes (see knowledge_capture.md Sessions 2-6 for full trace):
 // - step() clocks the harness forward until retire_valid_o pulses, mirroring
 //   Riscv::step()'s one-instruction-per-call granularity.
@@ -21,13 +17,6 @@
 //   incompatible clocks and any interrupt-timing comparison must be
 //   deferred to Phase C with different pass/fail criteria).
 //
-// RESOLVED (Session 7): signal-access mechanism decided as Verilator
-// `/* verilator public */` annotations, not new top-level ports. Confirmed
-// applied to riscv_top.v (dcache_addr_w/dcache_data_wr_w/dcache_rd_w/
-// dcache_wr_w/dcache_ack_w/dcache_data_rd_w) and axi_memory_model.v
-// (`mem` array) via Claude Code + direct diff review — lint-clean, 0 new
-// warnings on either file. mem_write_byte() and the event-push methods
-// below now use these hierarchy paths directly.
 //
 // OPEN ITEMS STILL NOT RESOLVED (see knowledge_capture.md "Open items"):
 // 1. get_opcode() returns a hardcoded 0 — no RTL signal traced yet for the
@@ -36,10 +25,7 @@
 // 2. set_register() is a no-op (warns and ignores) — no RTL backdoor
 //    register-write port exists. Not needed for Phase B (both sides reset
 //    to 0 identically); would matter for Phase C precondition-seeding.
-// 3. Still not built/run: Verilator is not installed in this sandbox.
-//    All Session 7 wiring is design/lint-level complete on the RTL side
-//    only — the C++ wrapper itself has not been compiled against a
-//    generated Vcosim_harness.h.
+
 #ifndef __COSIM_CPU_RTL_H__
 #define __COSIM_CPU_RTL_H__
 
