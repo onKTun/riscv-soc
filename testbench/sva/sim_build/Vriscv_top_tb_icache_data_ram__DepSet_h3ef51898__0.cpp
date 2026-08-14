@@ -21,8 +21,8 @@ VL_INLINE_OPT void Vriscv_top_tb_icache_data_ram___nba_sequent__TOP__riscv_top_t
     // Body
     __VdlySet__ram__v0 = 0U;
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__replace_way_q)) 
-         & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active))) {
-        __VdlyVal__ram__v0 = vlSymsp->TOP__riscv_top_tb.__PVT__i_rdata;
+         & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active))) {
+        __VdlyVal__ram__v0 = vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rdata_o;
         __VdlyDim0__ram__v0 = vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__data_addr_r;
         __VdlySet__ram__v0 = 1U;
     }
@@ -46,9 +46,9 @@ VL_INLINE_OPT void Vriscv_top_tb_icache_data_ram___nba_sequent__TOP__riscv_top_t
     __VdlySet__ram__v0 = 0;
     // Body
     __VdlySet__ram__v0 = 0U;
-    if (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
+    if (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
          & (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__replace_way_q))) {
-        __VdlyVal__ram__v0 = vlSymsp->TOP__riscv_top_tb.__PVT__i_rdata;
+        __VdlyVal__ram__v0 = vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rdata_o;
         __VdlyDim0__ram__v0 = vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__data_addr_r;
         __VdlySet__ram__v0 = 1U;
     }

@@ -1,0 +1,15 @@
+# SystemC::Coverage-3
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl182n33pagev_user/riscv_muldiv_csr_sva_checkeroCHK_017_mul_result_valid_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_017_mul_result_valid_C' 5
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl191n32pagev_user/riscv_muldiv_csr_sva_checkeroCHK_018_mul_hold_stable_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_018_mul_hold_stable_C' 332
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl196n28pagev_user/riscv_muldiv_csr_sva_checkeroCHK_019_mulh_signed_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_019_mulh_signed_C' 1
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl204n31pagev_user/riscv_muldiv_csr_sva_checkeroCHK_020_mulhu_unsigned_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_020_mulhu_unsigned_C' 1
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl211n29pagev_user/riscv_muldiv_csr_sva_checkeroCHK_021_mulhsu_mixed_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_021_mulhsu_mixed_C' 1
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl224n28pagev_user/riscv_muldiv_csr_sva_checkeroCHK_022_mul_zero_id_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_022_mul_zero_id_C' 1
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl291n28pagev_user/riscv_muldiv_csr_sva_checkeroCHK_023_div_by_zero_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_023_div_by_zero_C' 4
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl306n29pagev_user/riscv_muldiv_csr_sva_checkeroCHK_024_div_overflow_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_024_div_overflow_C' 2
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl347n35pagev_user/riscv_muldiv_csr_sva_checkeroCHK_025_div_result_correct_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_025_div_result_correct_C' 4
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl358n38pagev_user/riscv_muldiv_csr_sva_checkeroCHK_026_div_busy_no_new_issue_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_026_div_busy_no_new_issue_C' 330
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl370n32pagev_user/riscv_muldiv_csr_sva_checkeroCHK_027_div_valid_pulse_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_027_div_valid_pulse_C' 10
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl412n35pagev_user/riscv_muldiv_csr_sva_checkeroCHK_028_csr_write_readback_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_028_csr_write_readback_C' 2
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl432n38pagev_user/riscv_muldiv_csr_sva_checkeroCHK_029_illegal_csr_exception_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_029_illegal_csr_exception_C' 0
+C 'ftestbench/sva/riscv_muldiv_csr_sva.svl454n29pagev_user/riscv_muldiv_csr_sva_checkeroCHK_030_mepc_capture_Chriscv_muldiv_csr_tb.dut.muldiv_csr_sva_checker.CHK_030_mepc_capture_C' 0

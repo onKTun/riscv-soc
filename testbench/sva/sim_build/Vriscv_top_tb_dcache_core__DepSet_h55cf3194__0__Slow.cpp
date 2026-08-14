@@ -142,7 +142,7 @@ VL_ATTR_COLD void Vriscv_top_tb_dcache_core___stl_sequent__TOP__riscv_top_tb__du
                                         | (IData)(vlSelfRef.__PVT__tag1_hit_m_w));
     vlSelfRef.__PVT__data1_write_m_r = 0U;
     if ((6U == (IData)(vlSelfRef.__PVT__state_q))) {
-        vlSelfRef.__PVT__data0_data_in_m_w = vlSymsp->TOP__riscv_top_tb.__PVT__d_rdata;
+        vlSelfRef.__PVT__data0_data_in_m_w = vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rdata_o;
         vlSelfRef.__PVT__data0_write_m_r = (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__pmem_cache_ack_w) 
                                              & (~ (IData)(vlSelfRef.__PVT__replace_way_q)))
                                              ? 0xfU

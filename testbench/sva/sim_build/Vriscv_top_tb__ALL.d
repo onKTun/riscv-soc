@@ -13,7 +13,8 @@ Vriscv_top_tb__ALL.o: Vriscv_top_tb__ALL.cpp Vriscv_top_tb.cpp \
  /usr/share/verilator/include/verilated_cov.h Vriscv_top_tb___024root.h \
  /usr/share/verilator/include/verilated_timing.h \
  Vriscv_top_tb_riscv_top_tb.h Vriscv_top_tb___024unit.h \
- Vriscv_top_tb_riscv_top__M0_MBffff.h Vriscv_top_tb_dcache.h \
+ Vriscv_top_tb_axi_memory_model.h Vriscv_top_tb_riscv_top__M0_MBffff.h \
+ Vriscv_top_tb_axi_memory_model__R80000104.h Vriscv_top_tb_dcache.h \
  Vriscv_top_tb_icache.h Vriscv_top_tb_riscv_core__M0_MBffff.h \
  Vriscv_top_tb_riscv_issue.h Vriscv_top_tb_dcache_core.h \
  Vriscv_top_tb_icache_data_ram.h Vriscv_top_tb_icache_tag_ram.h \
@@ -23,8 +24,11 @@ Vriscv_top_tb__ALL.o: Vriscv_top_tb__ALL.cpp Vriscv_top_tb.cpp \
  Vriscv_top_tb___024root__DepSet_hc6a25405__0.cpp \
  Vriscv_top_tb___024root__DepSet_h644274f5__0.cpp \
  Vriscv_top_tb_riscv_top_tb__DepSet_hc2a78add__0.cpp \
- Vriscv_top_tb_riscv_top_tb__DepSet_h68459a2d__0.cpp \
+ Vriscv_top_tb_axi_memory_model__DepSet_ha4dffbbf__0.cpp \
+ Vriscv_top_tb_axi_memory_model__DepSet_h825dcb4b__0.cpp \
  Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_ha9396de2__0.cpp \
+ Vriscv_top_tb_axi_memory_model__R80000104__DepSet_hcb38b435__0.cpp \
+ Vriscv_top_tb_axi_memory_model__R80000104__DepSet_h71bc94c5__0.cpp \
  Vriscv_top_tb_dcache__DepSet_h02637e20__0.cpp \
  Vriscv_top_tb_icache__DepSet_h9c878b00__0.cpp \
  Vriscv_top_tb_riscv_core__M0_MBffff__DepSet_h6f9e5d1c__0.cpp \
@@ -47,13 +51,17 @@ Vriscv_top_tb__ALL.o: Vriscv_top_tb__ALL.cpp Vriscv_top_tb.cpp \
  Vriscv_top_tb___024root__DepSet_hc6a25405__0__Slow.cpp \
  Vriscv_top_tb___024root__DepSet_h644274f5__0__Slow.cpp \
  Vriscv_top_tb_riscv_top_tb__Slow.cpp \
- Vriscv_top_tb_riscv_top_tb__DepSet_hc2a78add__0__Slow.cpp \
  Vriscv_top_tb_riscv_top_tb__DepSet_h68459a2d__0__Slow.cpp \
  Vriscv_top_tb___024unit__Slow.cpp \
  Vriscv_top_tb___024unit__DepSet_ha6d180f4__0__Slow.cpp \
+ Vriscv_top_tb_axi_memory_model__Slow.cpp \
+ Vriscv_top_tb_axi_memory_model__DepSet_h825dcb4b__0__Slow.cpp \
  Vriscv_top_tb_riscv_top__M0_MBffff__Slow.cpp \
  Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_ha9396de2__0__Slow.cpp \
  Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_h8fbb3d18__0__Slow.cpp \
+ Vriscv_top_tb_axi_memory_model__R80000104__Slow.cpp \
+ Vriscv_top_tb_axi_memory_model__R80000104__DepSet_hcb38b435__0__Slow.cpp \
+ Vriscv_top_tb_axi_memory_model__R80000104__DepSet_h71bc94c5__0__Slow.cpp \
  Vriscv_top_tb_dcache__Slow.cpp \
  Vriscv_top_tb_dcache__DepSet_h02637e20__0__Slow.cpp \
  Vriscv_top_tb_dcache__DepSet_h29014eda__0__Slow.cpp \

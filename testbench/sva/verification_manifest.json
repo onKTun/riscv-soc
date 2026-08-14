@@ -61,5 +61,232 @@
     {"id":"CHK_038_load_store_destination","field_path":"6.6 Output timing and safety invariants","requirement":"Loads enable and stores disable destination-register writeback","trigger":"load or store in E1","routing":"Approved"},
     {"id":"CHK_039_branch_class","field_path":"6.6 Output timing and safety invariants","requirement":"Branches select the ALU execution class","trigger":"branch in E1","routing":"Approved"},
     {"id":"CHK_040_stall_cause","field_path":"6.3 Data integrity and stability","requirement":"Every pipeline stall has a divide load or store cause","trigger":"pipeline stall","routing":"Approved"}
+  ],
+  "additional_suites": [
+    {
+      "name": "muldiv_csr",
+      "generated_top": "riscv_muldiv_csr_tb",
+      "generated_file": "riscv_muldiv_csr_tb.sv",
+      "checker_file": "riscv_muldiv_csr_sva.sv",
+      "runner": "run_sva_muldiv_csr.sh",
+      "checks": [
+    {
+      "id": "CHK_001_reset_quiet",
+      "field_path": "6.1 Reset and initialization",
+      "requirement": "No AXI request is active while reset is sampled high",
+      "trigger": "rst_i",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_002_icache_refill",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "I-cache refill requests are aligned eight-beat INCR bursts",
+      "trigger": "instruction AR handshake",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_003_icache_response",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "Instruction RLAST is accompanied by RVALID",
+      "trigger": "instruction final read beat",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_004_dcache_read",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "D-cache reads are word-aligned INCR transactions",
+      "trigger": "data AR handshake",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_005_dcache_write",
+      "field_path": "6.3 Data integrity and stability",
+      "requirement": "Every D-cache write beat enables at least one byte lane",
+      "trigger": "data W handshake",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_006_dcache_response",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "Data RLAST is accompanied by RVALID",
+      "trigger": "data read or write response",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_007_icache_fsm",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "I-cache state remains legal and REFILL is reached",
+      "trigger": "I-cache REFILL state",
+      "routing": "Approved",
+      "hierarchy": "dut.u_icache.state_q"
+    },
+    {
+      "id": "CHK_008_dcache_fsm",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "D-cache state remains legal and REFILL is reached",
+      "trigger": "D-cache REFILL state",
+      "routing": "Approved",
+      "hierarchy": "dut.u_dcache.u_core.state_q"
+    },
+    {
+      "id": "CHK_009_reset_states",
+      "field_path": "6.1 Reset and initialization",
+      "requirement": "Both caches remain in their defined reset states while reset is active",
+      "trigger": "rst_i",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_010_icache_read_only",
+      "field_path": "6.6 Output timing and safety invariants",
+      "requirement": "The instruction cache never issues AXI writes",
+      "trigger": "instruction AXI activity",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_011_fetch_alignment",
+      "field_path": "6.5 Counters, FIFOs, and resources",
+      "requirement": "Instruction fetch requests are word aligned",
+      "trigger": "core instruction request",
+      "routing": "Approved",
+      "hierarchy": "dut.icache_pc_w"
+    },
+    {
+      "id": "CHK_012_core_data_request",
+      "field_path": "6.6 Output timing and safety invariants",
+      "requirement": "The core never requests a data read and write simultaneously",
+      "trigger": "core data request",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_013_icache_refill_exit",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "A completed I-cache refill transitions to RELOOKUP",
+      "trigger": "I-cache final refill beat",
+      "routing": "Approved",
+      "hierarchy": "dut.u_icache.state_q"
+    },
+    {
+      "id": "CHK_014_icache_relookup",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "I-cache RELOOKUP transitions to LOOKUP on the next clock",
+      "trigger": "I-cache RELOOKUP state",
+      "routing": "Approved",
+      "hierarchy": "dut.u_icache.state_q"
+    },
+    {
+      "id": "CHK_015_dcache_refill_exit",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "A completed D-cache refill transitions to READ or WRITE",
+      "trigger": "D-cache final refill acknowledgement",
+      "routing": "Approved",
+      "hierarchy": "dut.u_dcache.u_core.state_q"
+    },
+    {
+      "id": "CHK_016_axi_response",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "Instruction reads, data reads, and data writes receive OKAY responses",
+      "trigger": "any AXI response",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_017_mul_result_valid",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "MUL/MULH/MULHSU/MULHU writeback value matches operand-sign-extension-correct product",
+      "trigger": "opcode_valid_i (multiplier)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_018_mul_hold_stable",
+      "field_path": "6.6 Output timing and safety invariants",
+      "requirement": "hold_i freezes the multiplier writeback value (no pipeline advance while held)",
+      "trigger": "hold_i",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_019_mulh_signed",
+      "field_path": "6.5 Counters, FIFOs, and resources",
+      "requirement": "MULH exercised with both operands negative (signed x signed corner)",
+      "trigger": "opcode_valid_i (MULH, both MSB set)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_020_mulhu_unsigned",
+      "field_path": "6.5 Counters, FIFOs, and resources",
+      "requirement": "MULHU exercised with MSB set on both operands (sign-extension bug trap)",
+      "trigger": "opcode_valid_i (MULHU, both MSB set)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_021_mulhsu_mixed",
+      "field_path": "6.5 Counters, FIFOs, and resources",
+      "requirement": "MULHSU exercised with mixed-sign operands",
+      "trigger": "opcode_valid_i (MULHSU, mixed sign)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_022_mul_zero_id",
+      "field_path": "6.3 Data integrity and stability",
+      "requirement": "MUL by zero (either operand) produces a zero result",
+      "trigger": "opcode_valid_i (MUL, ra or rb == 0)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_023_div_by_zero",
+      "field_path": "6.3 Data integrity and stability",
+      "requirement": "Divide-by-zero returns RISC-V spec Table 7.1 values (DIV->-1, DIVU->2^32-1, REM/REMU->dividend)",
+      "trigger": "opcode_valid_i (DIV/DIVU/REM/REMU, rb == 0)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_024_div_overflow",
+      "field_path": "6.3 Data integrity and stability",
+      "requirement": "Signed overflow INT_MIN / -1 returns spec-mandated values (DIV->INT_MIN, REM->0)",
+      "trigger": "opcode_valid_i (DIV/REM, ra==INT_MIN, rb==-1)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_025_div_result_correct",
+      "field_path": "6.2 Protocol and handshake behavior",
+      "requirement": "General-case DIV/DIVU/REM/REMU results match a signed/unsigned behavioral reference",
+      "trigger": "writeback_valid_o (divider, general case)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_026_div_busy_no_new_issue",
+      "field_path": "6.5 Counters, FIFOs, and resources",
+      "requirement": "No new divide operation is accepted while the divider is busy (single in-flight op)",
+      "trigger": "div_busy_q",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_027_div_valid_pulse",
+      "field_path": "6.4 FSM behavior",
+      "requirement": "writeback_valid_o is a single-cycle pulse per divide operation",
+      "trigger": "writeback_valid_o (divider)",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_028_csr_write_readback",
+      "field_path": "6.3 Data integrity and stability",
+      "requirement": "A CSR write followed by a read of the same address returns the written value",
+      "trigger": "csr_result_e1_write_o",
+      "routing": "Approved"
+    },
+    {
+      "id": "CHK_029_illegal_csr_exception",
+      "field_path": "6.6 Output timing and safety invariants",
+      "requirement": "Illegal/read-only CSR access raises EXCEPTION_ILLEGAL_INSTRUCTION",
+      "trigger": "csr_opcode_valid_i (illegal/read-only CSR access)",
+      "routing": "Sign-off-exempt: unreachable at SUPPORT_SUPER=0, the only configuration reachable via riscv_top.v (parameter not exposed as pass-through). Assertion/cover remain compiled in; excluded from vacuity gate per documented design decision (knowledge_capture.md)."
+    },
+    {
+      "id": "CHK_030_mepc_capture",
+      "field_path": "6.1 Reset and initialization",
+      "requirement": "Taking a trap captures the faulting PC into mepc on the following cycle",
+      "trigger": "exception_i != 0 (csr_regfile)",
+      "routing": "Sign-off-exempt: depends on CHK_029's exception path; same exemption applies."
+    }
+      ]
+    }
   ]
 }

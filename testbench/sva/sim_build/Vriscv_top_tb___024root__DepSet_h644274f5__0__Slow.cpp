@@ -74,6 +74,22 @@ VL_ATTR_COLD bool Vriscv_top_tb___024root___eval_phase__stl(Vriscv_top_tb___024r
 }
 
 #ifdef VL_DEBUG
+VL_ATTR_COLD void Vriscv_top_tb___024root___dump_triggers__ico(Vriscv_top_tb___024root* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vriscv_top_tb___024root___dump_triggers__ico\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    if ((1U & (~ vlSelfRef.__VicoTriggered.any()))) {
+        VL_DBG_MSGF("         No triggers active\n");
+    }
+    if ((1ULL & vlSelfRef.__VicoTriggered.word(0U))) {
+        VL_DBG_MSGF("         'ico' region trigger index 0 is active: Internal 'ico' trigger - first iteration\n");
+    }
+}
+#endif  // VL_DEBUG
+
+#ifdef VL_DEBUG
 VL_ATTR_COLD void Vriscv_top_tb___024root___dump_triggers__act(Vriscv_top_tb___024root* vlSelf) {
     (void)vlSelf;  // Prevent unused variable warning
     Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -134,6 +150,7 @@ VL_ATTR_COLD void Vriscv_top_tb___024root____Vm_traceActivitySetAll(Vriscv_top_t
     vlSelfRef.__Vm_traceActivity[2U] = 1U;
     vlSelfRef.__Vm_traceActivity[3U] = 1U;
     vlSelfRef.__Vm_traceActivity[4U] = 1U;
+    vlSelfRef.__Vm_traceActivity[5U] = 1U;
 }
 
 VL_ATTR_COLD void Vriscv_top_tb___024root___ctor_var_reset(Vriscv_top_tb___024root* vlSelf) {
@@ -144,7 +161,7 @@ VL_ATTR_COLD void Vriscv_top_tb___024root___ctor_var_reset(Vriscv_top_tb___024ro
     // Body
     vlSelf->__Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__riscv_top_tb____PVT__rst__0 = VL_RAND_RESET_I(1);
-    for (int __Vi0 = 0; __Vi0 < 5; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 6; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }
 }

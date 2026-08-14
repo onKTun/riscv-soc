@@ -54,11 +54,11 @@ VL_ATTR_COLD void Vriscv_top_tb_dcache___stl_sequent__TOP__riscv_top_tb__dut__u_
                                               != (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_lsu__DOT__mem_cacheable_q)));
     vlSelfRef.__PVT__mem_error_o = ((IData)(vlSelfRef.__PVT__u_mux__DOT__cache_access_q) 
                                     && (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__error_q));
-    vlSelfRef.__PVT__pmem_ack_w = ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid) 
-                                   | (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active));
-    vlSelfRef.__PVT__u_axi__DOT__resp_pop_w = ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid) 
-                                               | ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_rlast) 
-                                                  & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active)));
+    vlSelfRef.__PVT__pmem_ack_w = ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o) 
+                                   | (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active));
+    vlSelfRef.__PVT__u_axi__DOT__resp_pop_w = ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o) 
+                                               | ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rlast_o) 
+                                                  & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active)));
     vlSelfRef.__PVT__pmem_cache_accept_w = ((2U != (IData)(vlSelfRef.__PVT__u_axi__DOT__u_req__DOT__count_q)) 
                                             & (IData)(vlSelfRef.__PVT__pmem_select_w));
     vlSelfRef.__PVT__u_axi__DOT__u_axi__DOT__inport_valid_w 
@@ -168,7 +168,7 @@ VL_ATTR_COLD void Vriscv_top_tb_dcache___stl_sequent__TOP__riscv_top_tb__dut__u_
                  & (2U != (IData)(vlSelfRef.__PVT__u_axi__DOT__u_req__DOT__count_q)))));
     vlSelfRef.u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_0 
         = ((IData)(vlSelfRef.__PVT__axi_awvalid_o) 
-           & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_awready));
+           & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__awready_o));
     vlSelfRef.__PVT__u_axi__DOT__u_axi__DOT__wr_cmd_accepted_w 
         = ((IData)(vlSelfRef.u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_0) 
            | (IData)(vlSelfRef.__PVT__u_axi__DOT__u_axi__DOT__awvalid_q));
@@ -190,7 +190,7 @@ VL_ATTR_COLD void Vriscv_top_tb_dcache___stl_sequent__TOP__riscv_top_tb__dut__u_
         = ((IData)(vlSelfRef.__PVT__pmem_select_w) ? (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__pmem_wr_w)
             : (IData)(vlSelfRef.__PVT__pmem_uncached_wr_w));
     u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_1 
-        = ((IData)(vlSelfRef.__PVT__axi_wvalid_o) & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_wready));
+        = ((IData)(vlSelfRef.__PVT__axi_wvalid_o) & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__wready_o));
     vlSelfRef.__PVT__u_axi__DOT__u_axi__DOT__wr_data_accepted_w 
         = ((IData)(u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_1) 
            | (IData)(vlSelfRef.__PVT__u_axi__DOT__u_axi__DOT__wvalid_q));
@@ -203,7 +203,7 @@ VL_ATTR_COLD void Vriscv_top_tb_dcache___stl_sequent__TOP__riscv_top_tb__dut__u_
                                              & ((IData)(vlSelfRef.u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_0) 
                                                 | ((IData)(u_axi__DOT__u_axi__DOT____VdfgRegularize_he156c47b_0_1) 
                                                    | ((IData)(vlSelfRef.__PVT__axi_arvalid_o) 
-                                                      & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active))))));
+                                                      & (~ (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active))))));
     vlSelfRef.__PVT__u_axi__DOT__res_push_w = ((((IData)(vlSelfRef.__PVT__u_axi__DOT__req_is_write_w) 
                                                  & ((0U 
                                                      == (IData)(vlSelfRef.__PVT__u_axi__DOT__req_len_w)) 

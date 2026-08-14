@@ -32,8 +32,8 @@ VL_INLINE_OPT void Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u
                                              & ((IData)(1U) 
                                                 + (IData)(vlSelfRef.__PVT__flush_addr_q)))
                                           : 0U);
-        if (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-             & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast))) {
+        if (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+             & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o))) {
             __Vdly__replace_way_q = (1U & ((IData)(1U) 
                                            + (IData)(vlSelfRef.__PVT__replace_way_q)));
         }
@@ -42,7 +42,7 @@ VL_INLINE_OPT void Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u
             __Vdly__data_write_addr_q = (0x7f8U & (vlSelfRef.__PVT__lookup_addr_q 
                                                    >> 2U));
         } else if (((2U == (IData)(vlSelfRef.__PVT__state_q)) 
-                    & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active))) {
+                    & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active))) {
             __Vdly__data_write_addr_q = (0x7ffU & ((IData)(1U) 
                                                    + (IData)(vlSelfRef.__PVT__data_write_addr_q)));
         }
@@ -60,7 +60,7 @@ VL_INLINE_OPT void Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u
     vlSelfRef.__PVT__invalidate_q = 0U;
     vlSelfRef.__PVT__axi_arvalid_q = ((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
                                       & ((IData)(vlSelfRef.__PVT__axi_arvalid_o) 
-                                         & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active)));
+                                         & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active)));
     vlSelfRef.__PVT__replace_way_q = __Vdly__replace_way_q;
     vlSelfRef.__PVT__data_write_addr_q = __Vdly__data_write_addr_q;
 }
@@ -86,11 +86,11 @@ VL_INLINE_OPT void Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u
         vlSelfRef.__PVT__tag1_write_r = 1U;
         vlSelfRef.__PVT__tag_data_in_r = 0U;
     } else if ((2U == (IData)(vlSelfRef.__PVT__state_q))) {
-        vlSelfRef.__PVT__tag0_write_r = (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-                                          & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast)) 
+        vlSelfRef.__PVT__tag0_write_r = (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+                                          & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o)) 
                                          & (~ (IData)(vlSelfRef.__PVT__replace_way_q)));
-        vlSelfRef.__PVT__tag1_write_r = (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-                                          & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast)) 
+        vlSelfRef.__PVT__tag1_write_r = (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+                                          & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o)) 
                                          & (IData)(vlSelfRef.__PVT__replace_way_q));
         vlSelfRef.__PVT__tag_data_in_r = (0x80000U 
                                           | (vlSelfRef.__PVT__lookup_addr_q 
@@ -158,8 +158,8 @@ VL_INLINE_OPT void Vriscv_top_tb_icache___nba_comb__TOP__riscv_top_tb__dut__u_ic
     if ((2U & (IData)(vlSelfRef.__PVT__state_q))) {
         if ((1U & (IData)(vlSelfRef.__PVT__state_q))) {
             vlSelfRef.__PVT__next_state_r = 1U;
-        } else if (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-                    & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast))) {
+        } else if (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+                    & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o))) {
             vlSelfRef.__PVT__next_state_r = 3U;
         }
     } else if ((1U & (IData)(vlSelfRef.__PVT__state_q))) {

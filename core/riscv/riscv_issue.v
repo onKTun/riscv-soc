@@ -149,6 +149,41 @@ module riscv_issue
     ,output          exec_hold_o
     ,output          mul_hold_o
     ,output          interrupt_inhibit_o
+    ,output          retire_valid_o
+    ,output [  4:0]  retire_rd_o
+    ,output [ 31:0]  retire_pc_o
+    ,output [ 31:0]  retire_value_o
+    ,output [ 31:0]  debug_x1_o
+    ,output [ 31:0]  debug_x2_o
+    ,output [ 31:0]  debug_x3_o
+    ,output [ 31:0]  debug_x4_o
+    ,output [ 31:0]  debug_x5_o
+    ,output [ 31:0]  debug_x6_o
+    ,output [ 31:0]  debug_x7_o
+    ,output [ 31:0]  debug_x8_o
+    ,output [ 31:0]  debug_x9_o
+    ,output [ 31:0]  debug_x10_o
+    ,output [ 31:0]  debug_x11_o
+    ,output [ 31:0]  debug_x12_o
+    ,output [ 31:0]  debug_x13_o
+    ,output [ 31:0]  debug_x14_o
+    ,output [ 31:0]  debug_x15_o
+    ,output [ 31:0]  debug_x16_o
+    ,output [ 31:0]  debug_x17_o
+    ,output [ 31:0]  debug_x18_o
+    ,output [ 31:0]  debug_x19_o
+    ,output [ 31:0]  debug_x20_o
+    ,output [ 31:0]  debug_x21_o
+    ,output [ 31:0]  debug_x22_o
+    ,output [ 31:0]  debug_x23_o
+    ,output [ 31:0]  debug_x24_o
+    ,output [ 31:0]  debug_x25_o
+    ,output [ 31:0]  debug_x26_o
+    ,output [ 31:0]  debug_x27_o
+    ,output [ 31:0]  debug_x28_o
+    ,output [ 31:0]  debug_x29_o
+    ,output [ 31:0]  debug_x30_o
+    ,output [ 31:0]  debug_x31_o
 );
 
 
@@ -329,6 +364,11 @@ assign csr_writeback_exception_o      = pipe_exception_wb_w;
 assign csr_writeback_exception_pc_o   = pipe_pc_wb_w;
 assign csr_writeback_exception_addr_o = pipe_result_wb_w;
 
+assign retire_valid_o = pipe_valid_wb_w;
+assign retire_rd_o    = pipe_rd_wb_w;
+assign retire_pc_o    = pipe_pc_wb_w;
+assign retire_value_o = pipe_result_wb_w;
+
 //-------------------------------------------------------------
 // Blocking events (division, CSR unit access)
 //-------------------------------------------------------------
@@ -445,7 +485,40 @@ u_regfile
     .ra0_i(issue_ra_idx_w),
     .rb0_i(issue_rb_idx_w),
     .ra0_value_o(issue_ra_value_w),
-    .rb0_value_o(issue_rb_value_w)
+    .rb0_value_o(issue_rb_value_w),
+
+    // Debug/cosim readback bus
+    .x1_debug_o(debug_x1_o),
+    .x2_debug_o(debug_x2_o),
+    .x3_debug_o(debug_x3_o),
+    .x4_debug_o(debug_x4_o),
+    .x5_debug_o(debug_x5_o),
+    .x6_debug_o(debug_x6_o),
+    .x7_debug_o(debug_x7_o),
+    .x8_debug_o(debug_x8_o),
+    .x9_debug_o(debug_x9_o),
+    .x10_debug_o(debug_x10_o),
+    .x11_debug_o(debug_x11_o),
+    .x12_debug_o(debug_x12_o),
+    .x13_debug_o(debug_x13_o),
+    .x14_debug_o(debug_x14_o),
+    .x15_debug_o(debug_x15_o),
+    .x16_debug_o(debug_x16_o),
+    .x17_debug_o(debug_x17_o),
+    .x18_debug_o(debug_x18_o),
+    .x19_debug_o(debug_x19_o),
+    .x20_debug_o(debug_x20_o),
+    .x21_debug_o(debug_x21_o),
+    .x22_debug_o(debug_x22_o),
+    .x23_debug_o(debug_x23_o),
+    .x24_debug_o(debug_x24_o),
+    .x25_debug_o(debug_x25_o),
+    .x26_debug_o(debug_x26_o),
+    .x27_debug_o(debug_x27_o),
+    .x28_debug_o(debug_x28_o),
+    .x29_debug_o(debug_x29_o),
+    .x30_debug_o(debug_x30_o),
+    .x31_debug_o(debug_x31_o)
 );
 
 //-------------------------------------------------------------

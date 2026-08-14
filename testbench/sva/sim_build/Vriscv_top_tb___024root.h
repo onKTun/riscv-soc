@@ -20,14 +20,16 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb___024root final : public Verila
 
     // DESIGN SPECIFIC STATE
     CData/*0:0*/ __VstlFirstIteration;
+    CData/*0:0*/ __VicoFirstIteration;
     CData/*0:0*/ __Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0;
     CData/*0:0*/ __Vtrigprevexpr___TOP__riscv_top_tb____PVT__rst__0;
     CData/*0:0*/ __VactContinue;
     IData/*31:0*/ __VactIterCount;
-    VlUnpacked<CData/*0:0*/, 5> __Vm_traceActivity;
+    VlUnpacked<CData/*0:0*/, 6> __Vm_traceActivity;
     VlDelayScheduler __VdlySched;
     VlTriggerScheduler __VtrigSched_hdd9481ea__0;
     VlTriggerVec<1> __VstlTriggered;
+    VlTriggerVec<1> __VicoTriggered;
     VlTriggerVec<4> __VactTriggered;
     VlTriggerVec<4> __VnbaTriggered;
 

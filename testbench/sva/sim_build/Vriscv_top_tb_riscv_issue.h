@@ -80,13 +80,15 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_issue final : public Veri
         VL_OUT8(__PVT__exec_hold_o,0,0);
         VL_OUT8(__PVT__mul_hold_o,0,0);
         VL_OUT8(__PVT__interrupt_inhibit_o,0,0);
+        VL_OUT8(__PVT__retire_valid_o,0,0);
+        VL_OUT8(__PVT__retire_rd_o,4,0);
         CData/*0:0*/ __PVT__stall_w;
         CData/*1:0*/ __PVT__priv_x_q;
         CData/*0:0*/ __PVT__opcode_valid_w;
-        CData/*0:0*/ __PVT__pipe_squash_e1_e2_w;
-        CData/*0:0*/ __PVT__opcode_issue_r;
     };
     struct {
+        CData/*0:0*/ __PVT__pipe_squash_e1_e2_w;
+        CData/*0:0*/ __PVT__opcode_issue_r;
         CData/*0:0*/ __PVT__opcode_accept_r;
         CData/*4:0*/ __PVT__pipe_rd_e1_w;
         CData/*4:0*/ __PVT__pipe_rd_e2_w;
@@ -143,6 +145,41 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_issue final : public Veri
         VL_OUT(__PVT__csr_writeback_wdata_o,31,0);
         VL_OUT(__PVT__csr_writeback_exception_pc_o,31,0);
         VL_OUT(__PVT__csr_writeback_exception_addr_o,31,0);
+        VL_OUT(__PVT__retire_pc_o,31,0);
+        VL_OUT(__PVT__retire_value_o,31,0);
+        VL_OUT(__PVT__debug_x1_o,31,0);
+        VL_OUT(__PVT__debug_x2_o,31,0);
+        VL_OUT(__PVT__debug_x3_o,31,0);
+        VL_OUT(__PVT__debug_x4_o,31,0);
+    };
+    struct {
+        VL_OUT(__PVT__debug_x5_o,31,0);
+        VL_OUT(__PVT__debug_x6_o,31,0);
+        VL_OUT(__PVT__debug_x7_o,31,0);
+        VL_OUT(__PVT__debug_x8_o,31,0);
+        VL_OUT(__PVT__debug_x9_o,31,0);
+        VL_OUT(__PVT__debug_x10_o,31,0);
+        VL_OUT(__PVT__debug_x11_o,31,0);
+        VL_OUT(__PVT__debug_x12_o,31,0);
+        VL_OUT(__PVT__debug_x13_o,31,0);
+        VL_OUT(__PVT__debug_x14_o,31,0);
+        VL_OUT(__PVT__debug_x15_o,31,0);
+        VL_OUT(__PVT__debug_x16_o,31,0);
+        VL_OUT(__PVT__debug_x17_o,31,0);
+        VL_OUT(__PVT__debug_x18_o,31,0);
+        VL_OUT(__PVT__debug_x19_o,31,0);
+        VL_OUT(__PVT__debug_x20_o,31,0);
+        VL_OUT(__PVT__debug_x21_o,31,0);
+        VL_OUT(__PVT__debug_x22_o,31,0);
+        VL_OUT(__PVT__debug_x23_o,31,0);
+        VL_OUT(__PVT__debug_x24_o,31,0);
+        VL_OUT(__PVT__debug_x25_o,31,0);
+        VL_OUT(__PVT__debug_x26_o,31,0);
+        VL_OUT(__PVT__debug_x27_o,31,0);
+        VL_OUT(__PVT__debug_x28_o,31,0);
+        VL_OUT(__PVT__debug_x29_o,31,0);
+        VL_OUT(__PVT__debug_x30_o,31,0);
+        VL_OUT(__PVT__debug_x31_o,31,0);
         IData/*31:0*/ __PVT__scoreboard_r;
         IData/*31:0*/ __PVT__issue_b_ra_value_w;
         IData/*31:0*/ __PVT__issue_b_rb_value_w;
@@ -151,8 +188,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_issue final : public Veri
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__pc_e1_q;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__npc_e1_q;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__opcode_e1_q;
-    };
-    struct {
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__operand_ra_e1_q;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__operand_rb_e1_q;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__csr_wdata_e2_q;
@@ -182,6 +217,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_issue final : public Veri
         VlWide<3>/*79:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_str;
         VlWide<3>/*79:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_ra;
         VlWide<3>/*79:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_rb;
+    };
+    struct {
         VlWide<3>/*79:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_rd;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_imm;
         IData/*31:0*/ __PVT__u_pipe_ctrl__DOT__u_trace_wb__DOT__dbg_inst_pc;

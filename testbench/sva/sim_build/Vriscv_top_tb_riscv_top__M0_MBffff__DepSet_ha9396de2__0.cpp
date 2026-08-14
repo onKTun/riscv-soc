@@ -6,6 +6,19 @@
 #include "Vriscv_top_tb__Syms.h"
 #include "Vriscv_top_tb_riscv_top__M0_MBffff.h"
 
+VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___ico_sequent__TOP__riscv_top_tb__dut__0(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___ico_sequent__TOP__riscv_top_tb__dut__0\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.dcache_wr_w = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_wr_o;
+    vlSelfRef.dcache_rd_w = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_rd_o;
+    vlSelfRef.dcache_data_rd_w = ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__u_mux__DOT__cache_access_q)
+                                   ? vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__data_r
+                                   : vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rdata_o);
+}
+
 VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__0(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
     (void)vlSelf;  // Prevent unused variable warning
     Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -47,8 +60,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     }
     if (vlSymsp->_vm_contextp__->assertOnGet(1, 1)) {
         if (VL_UNLIKELY((1U & (~ ((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__rst) 
-                                  | (~ ((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__mem_d_rd_o) 
-                                        & (0U != (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__mem_d_wr_o))))))))) {
+                                  | (~ ((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__dcache_rd_w) 
+                                        & (0U != (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__dcache_wr_w))))))))) {
             VL_WRITEF_NX("[%0t] %%Error: riscv_top_tb.sv:171: Assertion failed in %Nriscv_top_tb.dut.sva_checker.CHK_012_core_data_request_A: [CHK_012_core_data_request] simultaneous core data read and write\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
@@ -80,8 +93,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     }
     if (vlSymsp->_vm_contextp__->assertOnGet(1, 1)) {
         if (VL_UNLIKELY((1U & (~ ((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__rst) 
-                                  | ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__d_rlast)) 
-                                     | (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__d_memory__DOT__read_active))))))) {
+                                  | ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__d_memory____PVT__rlast_o)) 
+                                     | (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__d_memory____PVT__read_active))))))) {
             VL_WRITEF_NX("[%0t] %%Error: riscv_top_tb.sv:129: Assertion failed in %Nriscv_top_tb.dut.sva_checker.CHK_006_dcache_response_A: [CHK_006_dcache_response] RLAST without RVALID\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
@@ -123,8 +136,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     }
     if (vlSymsp->_vm_contextp__->assertOnGet(1, 1)) {
         if (VL_UNLIKELY((1U & (~ ((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__rst) 
-                                  | ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__i_rlast)) 
-                                     | (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__i_memory__DOT__read_active))))))) {
+                                  | ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__i_memory____PVT__rlast_o)) 
+                                     | (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__i_memory____PVT__read_active))))))) {
             VL_WRITEF_NX("[%0t] %%Error: riscv_top_tb.sv:106: Assertion failed in %Nriscv_top_tb.dut.sva_checker.CHK_003_icache_response_A: [CHK_003_icache_response] RLAST without RVALID\n",0,
                          64,VL_TIME_UNITED_Q(1000),
                          -9,vlSymsp->name());
@@ -569,7 +582,7 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     __Vdly__sva_checker__DOT__reset_cycle_count = vlSelfRef.__PVT__sva_checker__DOT__reset_cycle_count;
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__axi_wvalid_o) 
-            & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_wready)))) {
+            & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__wready_o)))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[4]);
         }
@@ -598,17 +611,16 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
+         & ((IData)(vlSelfRef.dcache_rd_w) | (0U != (IData)(vlSelfRef.dcache_wr_w))))) {
+        if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
+            ++(vlSymsp->__Vcoverage[11]);
+        }
+    }
+    if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_valid_wb_w) 
             & (0U != (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_rd_wb_w))))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[35]);
-        }
-    }
-    if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
-         & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_rd_o) 
-            | (0U != (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_wr_o))))) {
-        if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
-            ++(vlSymsp->__Vcoverage[11]);
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
@@ -666,7 +678,7 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__axi_arvalid_o) 
-            & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active))))) {
+            & (~ (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active))))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[3]);
         }
@@ -693,9 +705,9 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
-         & ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid) 
-            | ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active) 
-               & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_rlast))))) {
+         & ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o) 
+            | ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active) 
+               & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rlast_o))))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[5]);
         }
@@ -764,29 +776,29 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__axi_arvalid_o) 
-            & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active))))) {
+            & (~ (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active))))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[1]);
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__axi_arvalid_o) 
-            & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active))))) {
+            & (~ (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active))))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[9]);
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
-         & ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-            & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast)))) {
+         & ((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+            & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o)))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[2]);
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
          & (((2U == (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__state_q)) 
-             & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active)) 
-            & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast)))) {
+             & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active)) 
+            & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o)))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[12]);
         }
@@ -808,9 +820,9 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
         }
     }
     if (((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst)) 
-         & (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-             | (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active)) 
-            | (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid)))) {
+         & (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+             | (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active)) 
+            | (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o)))) {
         if (vlSymsp->_vm_contextp__->assertOnGet(1, 2)) {
             ++(vlSymsp->__Vcoverage[15]);
         }
@@ -838,8 +850,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
         vlSelfRef.__PVT__sva_checker__DOT__CHK_022_pipeline_reset_seen = 1U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_011_fetch_alignment_seen = 0U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_005_dcache_write_seen = 0U;
-        vlSelfRef.__PVT__sva_checker__DOT__CHK_037_commit_destination_seen = 0U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_012_core_data_request_seen = 0U;
+        vlSelfRef.__PVT__sva_checker__DOT__CHK_037_commit_destination_seen = 0U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_040_stall_cause_seen = 0U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_026_pipeline_stall_seen = 0U;
         vlSelfRef.__PVT__sva_checker__DOT__CHK_030_branch_control_seen = 0U;
@@ -872,16 +884,15 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
             vlSelfRef.__PVT__sva_checker__DOT__CHK_011_fetch_alignment_seen = 1U;
         }
         if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__axi_wvalid_o) 
-             & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_wready))) {
+             & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__wready_o))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_005_dcache_write_seen = 1U;
+        }
+        if (((IData)(vlSelfRef.dcache_rd_w) | (0U != (IData)(vlSelfRef.dcache_wr_w)))) {
+            vlSelfRef.__PVT__sva_checker__DOT__CHK_012_core_data_request_seen = 1U;
         }
         if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_valid_wb_w) 
              & (0U != (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_rd_wb_w)))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_037_commit_destination_seen = 1U;
-        }
-        if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_rd_o) 
-             | (0U != (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_wr_o)))) {
-            vlSelfRef.__PVT__sva_checker__DOT__CHK_012_core_data_request_seen = 1U;
         }
         if (vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__stall_w) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_040_stall_cause_seen = 1U;
@@ -908,7 +919,7 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
             vlSelfRef.__PVT__sva_checker__DOT__CHK_028_zero_register_seen = 1U;
         }
         if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__axi_arvalid_o) 
-             & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active)))) {
+             & (~ (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active)))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_004_dcache_read_seen = 1U;
         }
         if ((6U == (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__state_q))) {
@@ -919,9 +930,9 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
              & (0U == (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__pmem_len_q)))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_015_dcache_refill_exit_seen = 1U;
         }
-        if (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid) 
-             | ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active) 
-                & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_rlast)))) {
+        if (((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o) 
+             | ((IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active) 
+                & (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rlast_o)))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_006_dcache_response_seen = 1U;
         }
         if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_valid_wb_w) 
@@ -957,17 +968,17 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
             vlSelfRef.__PVT__sva_checker__DOT__CHK_029_pipeline_pc_seen = 1U;
         }
         if (((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__axi_arvalid_o) 
-             & (~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active)))) {
+             & (~ (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active)))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_010_icache_read_only_seen = 1U;
             vlSelfRef.__PVT__sva_checker__DOT__CHK_002_icache_refill_seen = 1U;
         }
-        if (((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-             & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast))) {
+        if (((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+             & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_003_icache_response_seen = 1U;
         }
         if ((((2U == (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__state_q)) 
-              & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active)) 
-             & (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_rlast))) {
+              & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active)) 
+             & (IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__rlast_o))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_013_icache_refill_exit_seen = 1U;
         }
         if ((((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__valid_e1_q) 
@@ -975,9 +986,9 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
              & (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__valid_wb_q))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_032_pipeline_complete_seen = 1U;
         }
-        if ((((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__i_memory__DOT__read_active) 
-              | (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_memory__DOT__read_active)) 
-             | (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__d_bvalid))) {
+        if ((((IData)(vlSymsp->TOP__riscv_top_tb__i_memory.__PVT__read_active) 
+              | (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__read_active)) 
+             | (IData)(vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__bvalid_o))) {
             vlSelfRef.__PVT__sva_checker__DOT__CHK_016_axi_response_seen = 1U;
         }
     }
@@ -1009,8 +1020,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     vlSelfRef.sva_checker__DOT___Vpast_0_0 = ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__rst)) 
                                               & (((2U 
                                                    == (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__u_icache____PVT__state_q)) 
-                                                  & (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__i_memory__DOT__read_active)) 
-                                                 & (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__i_rlast)));
+                                                  & (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__i_memory____PVT__read_active)) 
+                                                 & (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__i_memory____PVT__rlast_o)));
     vlSelfRef.sva_checker__DOT___Vpast_17_0 = ((~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb____PVT__rst)) 
                                                & (((IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__valid_e2_q) 
                                                    & (~ (IData)(vlSelfRef.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__stall_w))) 
@@ -1156,6 +1167,16 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
     VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__1\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
+    vlSelfRef.dcache_data_wr_w = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_lsu__DOT__mem_data_wr_q;
+    vlSelfRef.dcache_addr_w = (0xfffffffcU & vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_lsu__DOT__mem_addr_q);
+}
+
+VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__2(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__2\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
     vlSelfRef.__PVT__sva_checker__DOT__last_negedge_time 
         = VL_TIME_UNITED_D(1000);
     vlSelfRef.__PVT__sva_checker__DOT__clock_negedge_seen = 1U;
@@ -1171,4 +1192,34 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_
         }
         vlSelfRef.__PVT__sva_checker__DOT__CHK_018_clock_duty_seen = 1U;
     }
+}
+
+VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__0(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__0\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.dcache_data_rd_w = ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__u_mux__DOT__cache_access_q)
+                                   ? vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__data_r
+                                   : vlSymsp->TOP__riscv_top_tb__d_memory.__PVT__rdata_o);
+}
+
+VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__1(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__1\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.dcache_ack_w = vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__mem_ack_o;
+}
+
+VL_INLINE_OPT void Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__2(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__2\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Body
+    vlSelfRef.dcache_wr_w = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_wr_o;
+    vlSelfRef.dcache_rd_w = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__mem_d_rd_o;
 }

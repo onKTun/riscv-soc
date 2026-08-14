@@ -27,8 +27,11 @@ VM_CLASSES_FAST += \
 	Vriscv_top_tb___024root__DepSet_hc6a25405__0 \
 	Vriscv_top_tb___024root__DepSet_h644274f5__0 \
 	Vriscv_top_tb_riscv_top_tb__DepSet_hc2a78add__0 \
-	Vriscv_top_tb_riscv_top_tb__DepSet_h68459a2d__0 \
+	Vriscv_top_tb_axi_memory_model__DepSet_ha4dffbbf__0 \
+	Vriscv_top_tb_axi_memory_model__DepSet_h825dcb4b__0 \
 	Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_ha9396de2__0 \
+	Vriscv_top_tb_axi_memory_model__R80000104__DepSet_hcb38b435__0 \
+	Vriscv_top_tb_axi_memory_model__R80000104__DepSet_h71bc94c5__0 \
 	Vriscv_top_tb_dcache__DepSet_h02637e20__0 \
 	Vriscv_top_tb_icache__DepSet_h9c878b00__0 \
 	Vriscv_top_tb_riscv_core__M0_MBffff__DepSet_h6f9e5d1c__0 \
@@ -54,13 +57,17 @@ VM_CLASSES_SLOW += \
 	Vriscv_top_tb___024root__DepSet_hc6a25405__0__Slow \
 	Vriscv_top_tb___024root__DepSet_h644274f5__0__Slow \
 	Vriscv_top_tb_riscv_top_tb__Slow \
-	Vriscv_top_tb_riscv_top_tb__DepSet_hc2a78add__0__Slow \
 	Vriscv_top_tb_riscv_top_tb__DepSet_h68459a2d__0__Slow \
 	Vriscv_top_tb___024unit__Slow \
 	Vriscv_top_tb___024unit__DepSet_ha6d180f4__0__Slow \
+	Vriscv_top_tb_axi_memory_model__Slow \
+	Vriscv_top_tb_axi_memory_model__DepSet_h825dcb4b__0__Slow \
 	Vriscv_top_tb_riscv_top__M0_MBffff__Slow \
 	Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_ha9396de2__0__Slow \
 	Vriscv_top_tb_riscv_top__M0_MBffff__DepSet_h8fbb3d18__0__Slow \
+	Vriscv_top_tb_axi_memory_model__R80000104__Slow \
+	Vriscv_top_tb_axi_memory_model__R80000104__DepSet_hcb38b435__0__Slow \
+	Vriscv_top_tb_axi_memory_model__R80000104__DepSet_h71bc94c5__0__Slow \
 	Vriscv_top_tb_dcache__Slow \
 	Vriscv_top_tb_dcache__DepSet_h02637e20__0__Slow \
 	Vriscv_top_tb_dcache__DepSet_h29014eda__0__Slow \

@@ -41,6 +41,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_core__M0_MBffff final : p
         VL_OUT8(__PVT__mem_i_rd_o,0,0);
         VL_OUT8(__PVT__mem_i_flush_o,0,0);
         VL_OUT8(__PVT__mem_i_invalidate_o,0,0);
+        VL_OUT8(__PVT__retire_valid_o,0,0);
+        VL_OUT8(__PVT__retire_rd_o,4,0);
         CData/*0:0*/ __PVT__mmu_lsu_writeback_w;
         CData/*0:0*/ __PVT__fetch_instr_mul_w;
         CData/*0:0*/ __PVT__writeback_mem_valid_w;
@@ -85,10 +87,10 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_core__M0_MBffff final : p
         CData/*0:0*/ __PVT__u_lsu__DOT__pending_lsu_e2_q;
         CData/*0:0*/ __PVT__u_lsu__DOT__issue_lsu_e1_w;
         CData/*0:0*/ __PVT__u_lsu__DOT__complete_ok_e2_w;
-        CData/*0:0*/ __PVT__u_lsu__DOT__complete_err_e2_w;
-        CData/*0:0*/ __PVT__u_lsu__DOT__delay_lsu_e2_w;
     };
     struct {
+        CData/*0:0*/ __PVT__u_lsu__DOT__complete_err_e2_w;
+        CData/*0:0*/ __PVT__u_lsu__DOT__delay_lsu_e2_w;
         CData/*0:0*/ __PVT__u_lsu__DOT__load_inst_w;
         CData/*0:0*/ __PVT__u_lsu__DOT__load_signed_inst_w;
         CData/*0:0*/ __PVT__u_lsu__DOT__req_lh_w;
@@ -142,6 +144,41 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_core__M0_MBffff final : p
         VL_OUT(__PVT__mem_d_addr_o,31,0);
         VL_OUT(__PVT__mem_d_data_wr_o,31,0);
         VL_OUT(__PVT__mem_i_pc_o,31,0);
+        VL_OUT(__PVT__retire_pc_o,31,0);
+        VL_OUT(__PVT__retire_value_o,31,0);
+        VL_OUT(__PVT__debug_x1_o,31,0);
+        VL_OUT(__PVT__debug_x2_o,31,0);
+        VL_OUT(__PVT__debug_x3_o,31,0);
+        VL_OUT(__PVT__debug_x4_o,31,0);
+        VL_OUT(__PVT__debug_x5_o,31,0);
+        VL_OUT(__PVT__debug_x6_o,31,0);
+        VL_OUT(__PVT__debug_x7_o,31,0);
+    };
+    struct {
+        VL_OUT(__PVT__debug_x8_o,31,0);
+        VL_OUT(__PVT__debug_x9_o,31,0);
+        VL_OUT(__PVT__debug_x10_o,31,0);
+        VL_OUT(__PVT__debug_x11_o,31,0);
+        VL_OUT(__PVT__debug_x12_o,31,0);
+        VL_OUT(__PVT__debug_x13_o,31,0);
+        VL_OUT(__PVT__debug_x14_o,31,0);
+        VL_OUT(__PVT__debug_x15_o,31,0);
+        VL_OUT(__PVT__debug_x16_o,31,0);
+        VL_OUT(__PVT__debug_x17_o,31,0);
+        VL_OUT(__PVT__debug_x18_o,31,0);
+        VL_OUT(__PVT__debug_x19_o,31,0);
+        VL_OUT(__PVT__debug_x20_o,31,0);
+        VL_OUT(__PVT__debug_x21_o,31,0);
+        VL_OUT(__PVT__debug_x22_o,31,0);
+        VL_OUT(__PVT__debug_x23_o,31,0);
+        VL_OUT(__PVT__debug_x24_o,31,0);
+        VL_OUT(__PVT__debug_x25_o,31,0);
+        VL_OUT(__PVT__debug_x26_o,31,0);
+        VL_OUT(__PVT__debug_x27_o,31,0);
+        VL_OUT(__PVT__debug_x28_o,31,0);
+        VL_OUT(__PVT__debug_x29_o,31,0);
+        VL_OUT(__PVT__debug_x30_o,31,0);
+        VL_OUT(__PVT__debug_x31_o,31,0);
         IData/*31:0*/ __PVT__fetch_pc_w;
         IData/*31:0*/ __PVT__fetch_dec_instr_w;
         IData/*31:0*/ __PVT__fetch_instr_w;
@@ -153,8 +190,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_core__M0_MBffff final : p
         IData/*31:0*/ __PVT__u_exec__DOT__greater_than_signed__Vstatic__v;
         IData/*31:0*/ __PVT__u_exec__DOT__branch_target_r;
         IData/*31:0*/ __PVT__u_exec__DOT__pc_x_q;
-    };
-    struct {
         IData/*31:0*/ __PVT__u_exec__DOT__pc_m_q;
         IData/*31:0*/ __PVT__u_exec__DOT__u_alu__DOT__result_r;
         IData/*31:0*/ __PVT__u_exec__DOT__u_alu__DOT__shift_right_1_r;
@@ -184,6 +219,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vriscv_top_tb_riscv_core__M0_MBffff final : p
         IData/*31:0*/ __PVT__u_fetch__DOT__pc_f_q;
         IData/*31:0*/ __PVT__u_fetch__DOT__pc_d_q;
         IData/*31:0*/ __PVT__u_fetch__DOT__icache_pc_w;
+    };
+    struct {
         VlWide<3>/*65:0*/ __PVT__u_fetch__DOT__skid_buffer_q;
         IData/*31:0*/ __Vfunc_u_exec__DOT__less_than_signed__0__x;
         IData/*31:0*/ __Vfunc_u_exec__DOT__less_than_signed__0__y;

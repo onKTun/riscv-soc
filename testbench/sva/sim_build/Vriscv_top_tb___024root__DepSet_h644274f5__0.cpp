@@ -5,6 +5,25 @@
 #include "Vriscv_top_tb__pch.h"
 #include "Vriscv_top_tb___024root.h"
 
+void Vriscv_top_tb___024root___eval_triggers__ico(Vriscv_top_tb___024root* vlSelf);
+void Vriscv_top_tb___024root___eval_ico(Vriscv_top_tb___024root* vlSelf);
+
+bool Vriscv_top_tb___024root___eval_phase__ico(Vriscv_top_tb___024root* vlSelf) {
+    (void)vlSelf;  // Prevent unused variable warning
+    Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vriscv_top_tb___024root___eval_phase__ico\n"); );
+    auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Init
+    CData/*0:0*/ __VicoExecute;
+    // Body
+    Vriscv_top_tb___024root___eval_triggers__ico(vlSelf);
+    __VicoExecute = vlSelfRef.__VicoTriggered.any();
+    if (__VicoExecute) {
+        Vriscv_top_tb___024root___eval_ico(vlSelf);
+    }
+    return (__VicoExecute);
+}
+
 void Vriscv_top_tb___024root___timing_resume(Vriscv_top_tb___024root* vlSelf) {
     (void)vlSelf;  // Prevent unused variable warning
     Vriscv_top_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;

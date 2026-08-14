@@ -18,7 +18,9 @@
 #include "Vriscv_top_tb___024root.h"
 #include "Vriscv_top_tb_riscv_top_tb.h"
 #include "Vriscv_top_tb___024unit.h"
+#include "Vriscv_top_tb_axi_memory_model.h"
 #include "Vriscv_top_tb_riscv_top__M0_MBffff.h"
+#include "Vriscv_top_tb_axi_memory_model__R80000104.h"
 #include "Vriscv_top_tb_dcache.h"
 #include "Vriscv_top_tb_icache.h"
 #include "Vriscv_top_tb_riscv_core__M0_MBffff.h"
@@ -50,6 +52,7 @@ class alignas(VL_CACHE_LINE_BYTES)Vriscv_top_tb__Syms final : public VerilatedSy
     // MODULE INSTANCE STATE
     Vriscv_top_tb___024root        TOP;
     Vriscv_top_tb_riscv_top_tb     TOP__riscv_top_tb;
+    Vriscv_top_tb_axi_memory_model__R80000104 TOP__riscv_top_tb__d_memory;
     Vriscv_top_tb_riscv_top__M0_MBffff TOP__riscv_top_tb__dut;
     Vriscv_top_tb_riscv_core__M0_MBffff TOP__riscv_top_tb__dut__u_core;
     Vriscv_top_tb_riscv_csr__SB0   TOP__riscv_top_tb__dut__u_core__u_csr;
@@ -67,12 +70,15 @@ class alignas(VL_CACHE_LINE_BYTES)Vriscv_top_tb__Syms final : public VerilatedSy
     Vriscv_top_tb_icache_data_ram  TOP__riscv_top_tb__dut__u_icache__u_data1;
     Vriscv_top_tb_icache_tag_ram   TOP__riscv_top_tb__dut__u_icache__u_tag0;
     Vriscv_top_tb_icache_tag_ram   TOP__riscv_top_tb__dut__u_icache__u_tag1;
+    Vriscv_top_tb_axi_memory_model TOP__riscv_top_tb__i_memory;
 
     // COVERAGE
     uint32_t __Vcoverage[39];
 
     // SCOPE NAMES
     VerilatedScope __Vscope_riscv_top_tb;
+    VerilatedScope __Vscope_riscv_top_tb__d_memory;
+    VerilatedScope __Vscope_riscv_top_tb__dut;
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker;
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_001_reset_quiet_A;
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_003_icache_response_A;
@@ -119,6 +125,7 @@ class alignas(VL_CACHE_LINE_BYTES)Vriscv_top_tb__Syms final : public VerilatedSy
     VerilatedScope __Vscope_riscv_top_tb__dut__u_icache__u_data1;
     VerilatedScope __Vscope_riscv_top_tb__dut__u_icache__u_tag0;
     VerilatedScope __Vscope_riscv_top_tb__dut__u_icache__u_tag1;
+    VerilatedScope __Vscope_riscv_top_tb__i_memory;
 
     // CONSTRUCTORS
     Vriscv_top_tb__Syms(VerilatedContext* contextp, const char* namep, Vriscv_top_tb* modelp);
