@@ -160,25 +160,25 @@ wire           icache_valid_w;
 wire           icache_flush_w;
 wire           dcache_flush_w;
 wire           dcache_invalidate_w;
-wire           dcache_ack_w;
+wire           dcache_ack_w /* verilator public */;
 wire  [ 10:0]  dcache_resp_tag_w;
 wire  [ 31:0]  icache_inst_w;
 wire  [ 31:0]  cpu_id_w = CORE_ID;
-wire           dcache_rd_w;
-wire  [ 31:0]  dcache_addr_w;
+wire           dcache_rd_w /* verilator public */;
+wire  [ 31:0]  dcache_addr_w /* verilator public */;
 wire           dcache_accept_w;
 wire           icache_invalidate_w;
 wire           dcache_writeback_w;
 wire  [ 10:0]  dcache_req_tag_w;
 wire           dcache_cacheable_w;
 wire           icache_error_w;
-wire  [ 31:0]  dcache_data_rd_w;
+wire  [ 31:0]  dcache_data_rd_w /* verilator public */;
 wire           icache_accept_w;
-wire  [  3:0]  dcache_wr_w;
+wire  [  3:0]  dcache_wr_w /* verilator public */;
 wire  [ 31:0]  icache_pc_w;
 wire           icache_rd_w;
 wire           dcache_error_w;
-wire  [ 31:0]  dcache_data_wr_w;
+wire  [ 31:0]  dcache_data_wr_w /* verilator public */;
 
 
 dcache

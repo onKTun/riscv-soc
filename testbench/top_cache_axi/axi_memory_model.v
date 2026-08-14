@@ -38,7 +38,7 @@ module axi_memory_model #(
     output reg [31:0] read_bursts_o,
     output reg [31:0] write_words_o
 );
-    reg [31:0] mem [0:WORDS-1];
+    reg [31:0] mem [0:WORDS-1] /* verilator public */;
     reg read_active;
     reg [31:0] read_addr;
     reg [7:0] read_left;
