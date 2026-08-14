@@ -69,7 +69,7 @@ class alignas(VL_CACHE_LINE_BYTES)Vriscv_top_tb__Syms final : public VerilatedSy
     Vriscv_top_tb_icache_tag_ram   TOP__riscv_top_tb__dut__u_icache__u_tag1;
 
     // COVERAGE
-    uint32_t __Vcoverage[16];
+    uint32_t __Vcoverage[39];
 
     // SCOPE NAMES
     VerilatedScope __Vscope_riscv_top_tb;
@@ -85,6 +85,32 @@ class alignas(VL_CACHE_LINE_BYTES)Vriscv_top_tb__Syms final : public VerilatedSy
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_013_icache_refill_exit_A;
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_014_icache_relookup_A;
     VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_015_dcache_refill_exit_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_017_clock_period_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_018_clock_high_time_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_018_clock_low_time_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_019_reset_duration_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_020_reset_release_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_021_post_reset_quiet_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_022_pipeline_reset_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_023_load_store_exclusion_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_024_operation_class_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_025_invalid_stage_clear_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_026_pipeline_stall_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_028_zero_register_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_029_pipeline_pc_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_030_branch_control_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_031_pipeline_progress_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_032_pipeline_complete_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_033_e1_e2_metadata_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_034_e2_wb_metadata_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_035_add_result_ADDI_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_035_add_result_ADD_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_036_lui_result_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_037_commit_destination_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_038_load_store_destination_LOAD_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_038_load_store_destination_STORE_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_039_branch_class_A;
+    VerilatedScope __Vscope_riscv_top_tb__dut__sva_checker__CHK_040_stall_cause_A;
     VerilatedScope __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_data0;
     VerilatedScope __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_data1;
     VerilatedScope __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_tag0;

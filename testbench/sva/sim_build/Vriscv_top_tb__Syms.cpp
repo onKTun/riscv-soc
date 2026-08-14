@@ -76,7 +76,7 @@ Vriscv_top_tb__Syms::Vriscv_top_tb__Syms(VerilatedContext* contextp, const char*
     , TOP__riscv_top_tb__dut__u_icache__u_tag1{this, Verilated::catName(namep, "riscv_top_tb.dut.u_icache.u_tag1")}
 {
         // Check resources
-        Verilated::stackCheck(1942);
+        Verilated::stackCheck(1950);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-9);
     _vm_contextp__->timeprecision(-12);
@@ -133,6 +133,32 @@ Vriscv_top_tb__Syms::Vriscv_top_tb__Syms(VerilatedContext* contextp, const char*
     __Vscope_riscv_top_tb__dut__sva_checker__CHK_013_icache_refill_exit_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_013_icache_refill_exit_A", "CHK_013_icache_refill_exit_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_riscv_top_tb__dut__sva_checker__CHK_014_icache_relookup_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_014_icache_relookup_A", "CHK_014_icache_relookup_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_riscv_top_tb__dut__sva_checker__CHK_015_dcache_refill_exit_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_015_dcache_refill_exit_A", "CHK_015_dcache_refill_exit_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_017_clock_period_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_017_clock_period_A", "CHK_017_clock_period_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_018_clock_high_time_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_018_clock_high_time_A", "CHK_018_clock_high_time_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_018_clock_low_time_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_018_clock_low_time_A", "CHK_018_clock_low_time_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_019_reset_duration_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_019_reset_duration_A", "CHK_019_reset_duration_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_020_reset_release_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_020_reset_release_A", "CHK_020_reset_release_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_021_post_reset_quiet_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_021_post_reset_quiet_A", "CHK_021_post_reset_quiet_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_022_pipeline_reset_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_022_pipeline_reset_A", "CHK_022_pipeline_reset_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_023_load_store_exclusion_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_023_load_store_exclusion_A", "CHK_023_load_store_exclusion_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_024_operation_class_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_024_operation_class_A", "CHK_024_operation_class_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_025_invalid_stage_clear_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_025_invalid_stage_clear_A", "CHK_025_invalid_stage_clear_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_026_pipeline_stall_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_026_pipeline_stall_A", "CHK_026_pipeline_stall_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_028_zero_register_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_028_zero_register_A", "CHK_028_zero_register_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_029_pipeline_pc_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_029_pipeline_pc_A", "CHK_029_pipeline_pc_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_030_branch_control_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_030_branch_control_A", "CHK_030_branch_control_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_031_pipeline_progress_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_031_pipeline_progress_A", "CHK_031_pipeline_progress_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_032_pipeline_complete_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_032_pipeline_complete_A", "CHK_032_pipeline_complete_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_033_e1_e2_metadata_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_033_e1_e2_metadata_A", "CHK_033_e1_e2_metadata_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_034_e2_wb_metadata_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_034_e2_wb_metadata_A", "CHK_034_e2_wb_metadata_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_035_add_result_ADDI_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_035_add_result_ADDI_A", "CHK_035_add_result_ADDI_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_035_add_result_ADD_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_035_add_result_ADD_A", "CHK_035_add_result_ADD_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_036_lui_result_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_036_lui_result_A", "CHK_036_lui_result_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_037_commit_destination_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_037_commit_destination_A", "CHK_037_commit_destination_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_038_load_store_destination_LOAD_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_038_load_store_destination_LOAD_A", "CHK_038_load_store_destination_LOAD_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_038_load_store_destination_STORE_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_038_load_store_destination_STORE_A", "CHK_038_load_store_destination_STORE_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_039_branch_class_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_039_branch_class_A", "CHK_039_branch_class_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
+    __Vscope_riscv_top_tb__dut__sva_checker__CHK_040_stall_cause_A.configure(this, name(), "riscv_top_tb.dut.sva_checker.CHK_040_stall_cause_A", "CHK_040_stall_cause_A", "<null>", -9, VerilatedScope::SCOPE_OTHER);
     __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_data0.configure(this, name(), "riscv_top_tb.dut.u_dcache.u_core.u_data0", "u_data0", "<null>", 0, VerilatedScope::SCOPE_OTHER);
     __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_data1.configure(this, name(), "riscv_top_tb.dut.u_dcache.u_core.u_data1", "u_data1", "<null>", 0, VerilatedScope::SCOPE_OTHER);
     __Vscope_riscv_top_tb__dut__u_dcache__u_core__u_tag0.configure(this, name(), "riscv_top_tb.dut.u_dcache.u_core.u_tag0", "u_tag0", "<null>", 0, VerilatedScope::SCOPE_OTHER);

@@ -39,7 +39,9 @@ void Vriscv_top_tb___024root___eval_triggers__act(Vriscv_top_tb___024root* vlSel
                                        & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0))));
     vlSelfRef.__VactTriggered.set(1U, ((IData)(vlSymsp->TOP__riscv_top_tb.__PVT__rst) 
                                        & (~ (IData)(vlSelfRef.__Vtrigprevexpr___TOP__riscv_top_tb____PVT__rst__0))));
-    vlSelfRef.__VactTriggered.set(2U, vlSelfRef.__VdlySched.awaitingCurrentTime());
+    vlSelfRef.__VactTriggered.set(2U, ((~ (IData)(vlSymsp->TOP__riscv_top_tb.__PVT__clk)) 
+                                       & (IData)(vlSelfRef.__Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0)));
+    vlSelfRef.__VactTriggered.set(3U, vlSelfRef.__VdlySched.awaitingCurrentTime());
     vlSelfRef.__Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0 
         = vlSymsp->TOP__riscv_top_tb.__PVT__clk;
     vlSelfRef.__Vtrigprevexpr___TOP__riscv_top_tb____PVT__rst__0 
@@ -59,7 +61,7 @@ void Vriscv_top_tb___024root___eval_act(Vriscv_top_tb___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vriscv_top_tb___024root___eval_act\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
-    if ((5ULL & vlSelfRef.__VactTriggered.word(0U))) {
+    if ((9ULL & vlSelfRef.__VactTriggered.word(0U))) {
         Vriscv_top_tb_riscv_top_tb___act_comb__TOP__riscv_top_tb__0((&vlSymsp->TOP__riscv_top_tb));
     }
 }
@@ -98,6 +100,7 @@ void Vriscv_top_tb_riscv_issue___nba_sequent__TOP__riscv_top_tb__dut__u_core__u_
 void Vriscv_top_tb_riscv_csr__SB0___nba_sequent__TOP__riscv_top_tb__dut__u_core__u_csr__2(Vriscv_top_tb_riscv_csr__SB0* vlSelf);
 void Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u_icache__2(Vriscv_top_tb_icache* vlSelf);
 void Vriscv_top_tb_riscv_csr_regfile___nba_sequent__TOP__riscv_top_tb__dut__u_core__u_csr__u_csrfile__2(Vriscv_top_tb_riscv_csr_regfile* vlSelf);
+void Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__1(Vriscv_top_tb_riscv_top__M0_MBffff* vlSelf);
 void Vriscv_top_tb_dcache_core___nba_sequent__TOP__riscv_top_tb__dut__u_dcache__u_core__3(Vriscv_top_tb_dcache_core* vlSelf);
 void Vriscv_top_tb_dcache_core___nba_comb__TOP__riscv_top_tb__dut__u_dcache__u_core__0(Vriscv_top_tb_dcache_core* vlSelf);
 void Vriscv_top_tb_icache___nba_comb__TOP__riscv_top_tb__dut__u_icache__0(Vriscv_top_tb_icache* vlSelf);
@@ -163,12 +166,16 @@ void Vriscv_top_tb___024root___eval_nba(Vriscv_top_tb___024root* vlSelf) {
         Vriscv_top_tb_icache___nba_sequent__TOP__riscv_top_tb__dut__u_icache__2((&vlSymsp->TOP__riscv_top_tb__dut__u_icache));
         Vriscv_top_tb_riscv_csr_regfile___nba_sequent__TOP__riscv_top_tb__dut__u_core__u_csr__u_csrfile__2((&vlSymsp->TOP__riscv_top_tb__dut__u_core__u_csr__u_csrfile));
     }
+    if ((4ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        Vriscv_top_tb_riscv_top__M0_MBffff___nba_sequent__TOP__riscv_top_tb__dut__1((&vlSymsp->TOP__riscv_top_tb__dut));
+        vlSelfRef.__Vm_traceActivity[3U] = 1U;
+    }
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vriscv_top_tb_dcache_core___nba_sequent__TOP__riscv_top_tb__dut__u_dcache__u_core__3((&vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core));
     }
     if ((3ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vriscv_top_tb_dcache_core___nba_comb__TOP__riscv_top_tb__dut__u_dcache__u_core__0((&vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core));
-        vlSelfRef.__Vm_traceActivity[3U] = 1U;
+        vlSelfRef.__Vm_traceActivity[4U] = 1U;
         Vriscv_top_tb_icache___nba_comb__TOP__riscv_top_tb__dut__u_icache__0((&vlSymsp->TOP__riscv_top_tb__dut__u_icache));
         Vriscv_top_tb_dcache___nba_comb__TOP__riscv_top_tb__dut__u_dcache__0((&vlSymsp->TOP__riscv_top_tb__dut__u_dcache));
         Vriscv_top_tb_riscv_core__M0_MBffff___nba_comb__TOP__riscv_top_tb__dut__u_core__0((&vlSymsp->TOP__riscv_top_tb__dut__u_core));
@@ -186,7 +193,7 @@ void Vriscv_top_tb___024root___eval_nba(Vriscv_top_tb___024root* vlSelf) {
         Vriscv_top_tb_riscv_csr__SB0___nba_comb__TOP__riscv_top_tb__dut__u_core__u_csr__0((&vlSymsp->TOP__riscv_top_tb__dut__u_core__u_csr));
         Vriscv_top_tb_riscv_issue___nba_comb__TOP__riscv_top_tb__dut__u_core__u_issue__3((&vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue));
     }
-    if ((7ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+    if ((0xbULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vriscv_top_tb_riscv_top_tb___act_comb__TOP__riscv_top_tb__0((&vlSymsp->TOP__riscv_top_tb));
     }
 }
@@ -247,10 +254,106 @@ void Vriscv_top_tb___024root___eval(Vriscv_top_tb___024root* vlSelf) {
         = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_1_0;
     vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_2_0 
         = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_2_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_3_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_3_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut____PVT__sva_checker__DOT__reset_cycle_count 
+        = vlSymsp->TOP__riscv_top_tb__dut.__PVT__sva_checker__DOT__reset_cycle_count;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_6_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_6_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_8_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_8_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__valid_e1_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__valid_e1_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__valid_e2_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__valid_e2_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__valid_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__valid_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__ctrl_e1_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__ctrl_e1_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__ctrl_e2_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__ctrl_e2_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__ctrl_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__ctrl_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_10_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_10_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[0U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[0U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[1U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[1U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[2U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[2U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[3U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[3U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[4U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[4U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[5U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[5U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[6U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[6U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_11_0[7U] 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_11_0[7U];
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__pc_e1_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__pc_e1_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__opcode_e1_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__opcode_e1_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__pc_e2_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__pc_e2_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__opcode_e2_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__opcode_e2_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__pc_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__pc_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__opcode_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__opcode_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__fetch_instr_w 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__fetch_instr_w;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__issue_ra_value_r 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__issue_ra_value_r;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__u_exec__DOT__branch_taken_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_exec__DOT__branch_taken_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__u_exec__DOT__branch_ntaken_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_exec__DOT__branch_ntaken_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core____PVT__u_exec__DOT__pc_x_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core.__PVT__u_exec__DOT__pc_x_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_12_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_12_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_13_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_13_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_14_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_14_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_15_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_15_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_16_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_16_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_17_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_17_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__stall_w 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__stall_w;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_18_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_18_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_19_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_19_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_20_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_20_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__pipe_valid_wb_w 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_valid_wb_w;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__result_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__result_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__operand_ra_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__operand_ra_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__operand_rb_wb_q 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__operand_rb_wb_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__pipe_rd_wb_w 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_rd_wb_w;
     vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_dcache____PVT__pmem_cache_ack_w 
         = vlSymsp->TOP__riscv_top_tb__dut__u_dcache.__PVT__pmem_cache_ack_w;
     vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_dcache__u_core____PVT__pmem_len_q 
         = vlSymsp->TOP__riscv_top_tb__dut__u_dcache__u_core.__PVT__pmem_len_q;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__sva_checker__DOT___Vpast_5_0 
+        = vlSymsp->TOP__riscv_top_tb__dut.sva_checker__DOT___Vpast_5_0;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__pipe_squash_e1_e2_w 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__pipe_squash_e1_e2_w;
+    vlSymsp->TOP__riscv_top_tb__dut.__Vsampled_TOP__riscv_top_tb__dut__u_core__u_issue____PVT__u_pipe_ctrl__DOT__exception_e2_r 
+        = vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__u_pipe_ctrl__DOT__exception_e2_r;
     IData/*31:0*/ __VnbaIterCount;
     CData/*0:0*/ __VnbaContinue;
     // Body

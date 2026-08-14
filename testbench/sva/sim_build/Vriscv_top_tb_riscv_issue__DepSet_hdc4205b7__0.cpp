@@ -57,9 +57,9 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_issue___nba_sequent__TOP__riscv_top_tb__d
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__operand_ra_wb_q = 0U;
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__npc_wb_q = 0U;
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__pc_wb_q = 0U;
+        vlSelfRef.__PVT__u_pipe_ctrl__DOT__exception_e2_q = 0U;
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__opcode_wb_q = 0U;
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__valid_wb_q = 0U;
-        vlSelfRef.__PVT__u_pipe_ctrl__DOT__exception_e2_q = 0U;
         vlSelfRef.__PVT__u_pipe_ctrl__DOT__result_wb_q = 0U;
         vlSelfRef.__PVT__csr_pending_q = 0U;
         vlSelfRef.__PVT__priv_x_q = 3U;

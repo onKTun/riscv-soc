@@ -15,7 +15,7 @@ void Vriscv_top_tb___024root___timing_resume(Vriscv_top_tb___024root* vlSelf) {
         vlSelfRef.__VtrigSched_hdd9481ea__0.resume(
                                                    "@(posedge riscv_top_tb.clk)");
     }
-    if ((4ULL & vlSelfRef.__VactTriggered.word(0U))) {
+    if ((8ULL & vlSelfRef.__VactTriggered.word(0U))) {
         vlSelfRef.__VdlySched.resume();
     }
 }
@@ -41,7 +41,7 @@ bool Vriscv_top_tb___024root___eval_phase__act(Vriscv_top_tb___024root* vlSelf) 
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vriscv_top_tb___024root___eval_phase__act\n"); );
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Init
-    VlTriggerVec<3> __VpreTriggered;
+    VlTriggerVec<4> __VpreTriggered;
     CData/*0:0*/ __VactExecute;
     // Body
     Vriscv_top_tb___024root___eval_triggers__act(vlSelf);

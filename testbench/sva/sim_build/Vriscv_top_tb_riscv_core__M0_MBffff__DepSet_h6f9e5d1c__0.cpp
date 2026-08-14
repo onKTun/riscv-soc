@@ -65,8 +65,6 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_core__M0_MBffff___nba_sequent__TOP__riscv
         vlSelfRef.__PVT__u_exec__DOT__branch_call_q = 0U;
         vlSelfRef.__PVT__u_exec__DOT__branch_ret_q = 0U;
         vlSelfRef.__PVT__u_exec__DOT__branch_jmp_q = 0U;
-        vlSelfRef.__PVT__u_exec__DOT__branch_taken_q = 0U;
-        vlSelfRef.__PVT__u_exec__DOT__branch_ntaken_q = 0U;
         vlSelfRef.__PVT__u_exec__DOT__pc_m_q = 0U;
         vlSelfRef.__PVT__u_exec__DOT__pc_x_q = 0U;
         vlSelfRef.__PVT__u_fetch__DOT__icache_fetch_q = 0U;
@@ -81,6 +79,8 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_core__M0_MBffff___nba_sequent__TOP__riscv
         vlSelfRef.__PVT__u_fetch__DOT__skid_buffer_q[0U] = 0U;
         vlSelfRef.__PVT__u_fetch__DOT__skid_buffer_q[1U] = 0U;
         vlSelfRef.__PVT__u_fetch__DOT__skid_buffer_q[2U] = 0U;
+        vlSelfRef.__PVT__u_exec__DOT__branch_ntaken_q = 0U;
+        vlSelfRef.__PVT__u_exec__DOT__branch_taken_q = 0U;
         vlSelfRef.__PVT__u_div__DOT__div_busy_q = 0U;
         vlSelfRef.__PVT__u_lsu__DOT__mem_addr_q = 0U;
         vlSelfRef.__PVT__u_lsu__DOT__mem_data_wr_q = 0U;
@@ -187,19 +187,19 @@ VL_INLINE_OPT void Vriscv_top_tb_riscv_core__M0_MBffff___nba_sequent__TOP__riscv
                 = (((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_r) 
                     & (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__opcode_issue_r)) 
                    & (IData)(vlSelfRef.__PVT__u_exec__DOT__branch_jmp_r));
-            vlSelfRef.__PVT__u_exec__DOT__branch_taken_q 
-                = ((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_r) 
-                   & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__opcode_issue_r) 
-                      & (IData)(vlSelfRef.__PVT__u_exec__DOT__branch_taken_r)));
-            vlSelfRef.__PVT__u_exec__DOT__branch_ntaken_q 
-                = ((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_r) 
-                   & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__opcode_issue_r) 
-                      & (~ (IData)(vlSelfRef.__PVT__u_exec__DOT__branch_taken_r))));
             vlSelfRef.__PVT__u_exec__DOT__pc_m_q = vlSelfRef.__PVT__fetch_pc_w;
             vlSelfRef.__PVT__u_exec__DOT__pc_x_q = 
                 ((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_taken_r)
                   ? vlSelfRef.__PVT__u_exec__DOT__branch_target_r
                   : ((IData)(4U) + vlSelfRef.__PVT__fetch_pc_w));
+            vlSelfRef.__PVT__u_exec__DOT__branch_ntaken_q 
+                = ((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_r) 
+                   & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__opcode_issue_r) 
+                      & (~ (IData)(vlSelfRef.__PVT__u_exec__DOT__branch_taken_r))));
+            vlSelfRef.__PVT__u_exec__DOT__branch_taken_q 
+                = ((IData)(vlSelfRef.__PVT__u_exec__DOT__branch_r) 
+                   & ((IData)(vlSymsp->TOP__riscv_top_tb__dut__u_core__u_issue.__PVT__opcode_issue_r) 
+                      & (IData)(vlSelfRef.__PVT__u_exec__DOT__branch_taken_r)));
         }
         if (((IData)(vlSelfRef.__PVT__mem_i_rd_o) & (IData)(vlSymsp->TOP__riscv_top_tb__dut__u_icache.__PVT__req_accept_o))) {
             vlSelfRef.__PVT__u_fetch__DOT__icache_fetch_q = 1U;

@@ -90,7 +90,10 @@ VL_ATTR_COLD void Vriscv_top_tb___024root___dump_triggers__act(Vriscv_top_tb___0
         VL_DBG_MSGF("         'act' region trigger index 1 is active: @(posedge riscv_top_tb.rst)\n");
     }
     if ((4ULL & vlSelfRef.__VactTriggered.word(0U))) {
-        VL_DBG_MSGF("         'act' region trigger index 2 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
+        VL_DBG_MSGF("         'act' region trigger index 2 is active: @(negedge riscv_top_tb.clk)\n");
+    }
+    if ((8ULL & vlSelfRef.__VactTriggered.word(0U))) {
+        VL_DBG_MSGF("         'act' region trigger index 3 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
     }
 }
 #endif  // VL_DEBUG
@@ -112,7 +115,10 @@ VL_ATTR_COLD void Vriscv_top_tb___024root___dump_triggers__nba(Vriscv_top_tb___0
         VL_DBG_MSGF("         'nba' region trigger index 1 is active: @(posedge riscv_top_tb.rst)\n");
     }
     if ((4ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
-        VL_DBG_MSGF("         'nba' region trigger index 2 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
+        VL_DBG_MSGF("         'nba' region trigger index 2 is active: @(negedge riscv_top_tb.clk)\n");
+    }
+    if ((8ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
+        VL_DBG_MSGF("         'nba' region trigger index 3 is active: @([true] __VdlySched.awaitingCurrentTime())\n");
     }
 }
 #endif  // VL_DEBUG
@@ -127,6 +133,7 @@ VL_ATTR_COLD void Vriscv_top_tb___024root____Vm_traceActivitySetAll(Vriscv_top_t
     vlSelfRef.__Vm_traceActivity[1U] = 1U;
     vlSelfRef.__Vm_traceActivity[2U] = 1U;
     vlSelfRef.__Vm_traceActivity[3U] = 1U;
+    vlSelfRef.__Vm_traceActivity[4U] = 1U;
 }
 
 VL_ATTR_COLD void Vriscv_top_tb___024root___ctor_var_reset(Vriscv_top_tb___024root* vlSelf) {
@@ -137,7 +144,7 @@ VL_ATTR_COLD void Vriscv_top_tb___024root___ctor_var_reset(Vriscv_top_tb___024ro
     // Body
     vlSelf->__Vtrigprevexpr___TOP__riscv_top_tb____PVT__clk__0 = VL_RAND_RESET_I(1);
     vlSelf->__Vtrigprevexpr___TOP__riscv_top_tb____PVT__rst__0 = VL_RAND_RESET_I(1);
-    for (int __Vi0 = 0; __Vi0 < 4; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 5; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }
 }

@@ -1,7 +1,7 @@
 # Core + cache SVA testbench
 
 This Verilator/SystemVerilog environment follows `SVA_VERIFICATION_PLAN.md`.
-It binds sixteen stable `CHK_*` assertion groups to `riscv_top`, generates VCD
+It binds thirty-nine stable `CHK_*` assertion groups to `riscv_top`, generates VCD
 waveforms, enables explicit `cover property` coverage, and fails sign-off if a
 required trigger is not observed.
 
