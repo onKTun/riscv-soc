@@ -105,6 +105,26 @@ int main(int argc, char *argv[])
 
     g_rtl_for_load = rtl;
 
+    if (trace)
+        rtl->open_trace("cosim_rtl_trace.vcd");
+
+    // --- Priming reset -------------------------------------------------
+    // Verilator defers a module's `initial` blocks to that module's first
+    // eval() call, which for cosim_cpu_rtl only happens inside reset()
+    // (via clk_edge()). axi_memory_model.v has an `initial` block that
+    // fills mem[] with the NOP encoding on every word; if that first
+    // eval() happened AFTER elf_load()'s backdoor mem_write_byte() pokes
+    // below, it would silently wipe the freshly-loaded program back to
+    // NOPs. This throwaway reset (placeholder PC of 0) forces that first
+    // eval()/initial-block firing to happen before the ELF load, so the
+    // real writes below stick. cosim::reset() fans out to every attached
+    // CPU, so the reference model is reset here too; it is reset again
+    // below with the real start_addr, which has no observable side effect
+    // since Riscv::reset() is idempotent and cheap.
+    cosim::instance()->reset(0);
+
+    // --- Load ELF (safe now: mem[]'s one-time initial fill has already
+    //     happened, so these backdoor writes are not overwritten) -------
     uint32_t start_addr = 0;
     if (!elf_load(filename, mem_create, mem_load, NULL, &start_addr))
     {
@@ -114,13 +134,14 @@ int main(int argc, char *argv[])
 
     printf("Starting from 0x%08x\n", start_addr);
 
-    if (trace)
-        rtl->open_trace("cosim_rtl_trace.vcd");
-
+    // --- Real reset, now with the correct entry point -------------------
     // Reset BOTH CPUs to the same PC. cosim::reset() (inherited from
     // cosim_cpu_api's aggregate implementation in cosim_api.cpp) already
     // fans out to every attached CPU's reset(), so this one call resets
-    // both the reference model and the RTL harness.
+    // both the reference model and the RTL harness. This does not re-run
+    // axi_memory_model.v's initial block (Verilator only fires a given
+    // initial block once per model lifetime), so the ELF contents loaded
+    // above are preserved through this second reset.
     cosim::instance()->reset(start_addr);
 
     int  instr_count = 0;
