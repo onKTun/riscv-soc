@@ -88,6 +88,44 @@ module riscv_core
     ,output          mem_i_flush_o
     ,output          mem_i_invalidate_o
     ,output [ 31:0]  mem_i_pc_o
+
+    // Cosim debug ports (added for RTL-vs-ISA-sim retirement/regfile
+    // observation — read-only, no functional effect)
+    ,output          retire_valid_o
+    ,output [  4:0]  retire_rd_o
+    ,output [ 31:0]  retire_pc_o
+    ,output [ 31:0]  retire_value_o
+    ,output [ 31:0]  debug_x1_o
+    ,output [ 31:0]  debug_x2_o
+    ,output [ 31:0]  debug_x3_o
+    ,output [ 31:0]  debug_x4_o
+    ,output [ 31:0]  debug_x5_o
+    ,output [ 31:0]  debug_x6_o
+    ,output [ 31:0]  debug_x7_o
+    ,output [ 31:0]  debug_x8_o
+    ,output [ 31:0]  debug_x9_o
+    ,output [ 31:0]  debug_x10_o
+    ,output [ 31:0]  debug_x11_o
+    ,output [ 31:0]  debug_x12_o
+    ,output [ 31:0]  debug_x13_o
+    ,output [ 31:0]  debug_x14_o
+    ,output [ 31:0]  debug_x15_o
+    ,output [ 31:0]  debug_x16_o
+    ,output [ 31:0]  debug_x17_o
+    ,output [ 31:0]  debug_x18_o
+    ,output [ 31:0]  debug_x19_o
+    ,output [ 31:0]  debug_x20_o
+    ,output [ 31:0]  debug_x21_o
+    ,output [ 31:0]  debug_x22_o
+    ,output [ 31:0]  debug_x23_o
+    ,output [ 31:0]  debug_x24_o
+    ,output [ 31:0]  debug_x25_o
+    ,output [ 31:0]  debug_x26_o
+    ,output [ 31:0]  debug_x27_o
+    ,output [ 31:0]  debug_x28_o
+    ,output [ 31:0]  debug_x29_o
+    ,output [ 31:0]  debug_x30_o
+    ,output [ 31:0]  debug_x31_o
 );
 
 wire           mmu_lsu_writeback_w;
@@ -600,6 +638,41 @@ u_issue
     ,.exec_hold_o(exec_hold_w)
     ,.mul_hold_o(mul_hold_w)
     ,.interrupt_inhibit_o(interrupt_inhibit_w)
+    ,.retire_valid_o(retire_valid_o)
+    ,.retire_rd_o(retire_rd_o)
+    ,.retire_pc_o(retire_pc_o)
+    ,.retire_value_o(retire_value_o)
+    ,.debug_x1_o(debug_x1_o)
+    ,.debug_x2_o(debug_x2_o)
+    ,.debug_x3_o(debug_x3_o)
+    ,.debug_x4_o(debug_x4_o)
+    ,.debug_x5_o(debug_x5_o)
+    ,.debug_x6_o(debug_x6_o)
+    ,.debug_x7_o(debug_x7_o)
+    ,.debug_x8_o(debug_x8_o)
+    ,.debug_x9_o(debug_x9_o)
+    ,.debug_x10_o(debug_x10_o)
+    ,.debug_x11_o(debug_x11_o)
+    ,.debug_x12_o(debug_x12_o)
+    ,.debug_x13_o(debug_x13_o)
+    ,.debug_x14_o(debug_x14_o)
+    ,.debug_x15_o(debug_x15_o)
+    ,.debug_x16_o(debug_x16_o)
+    ,.debug_x17_o(debug_x17_o)
+    ,.debug_x18_o(debug_x18_o)
+    ,.debug_x19_o(debug_x19_o)
+    ,.debug_x20_o(debug_x20_o)
+    ,.debug_x21_o(debug_x21_o)
+    ,.debug_x22_o(debug_x22_o)
+    ,.debug_x23_o(debug_x23_o)
+    ,.debug_x24_o(debug_x24_o)
+    ,.debug_x25_o(debug_x25_o)
+    ,.debug_x26_o(debug_x26_o)
+    ,.debug_x27_o(debug_x27_o)
+    ,.debug_x28_o(debug_x28_o)
+    ,.debug_x29_o(debug_x29_o)
+    ,.debug_x30_o(debug_x30_o)
+    ,.debug_x31_o(debug_x31_o)
 );
 
 

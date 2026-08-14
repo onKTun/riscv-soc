@@ -60,6 +60,37 @@ module riscv_regfile
     // Outputs
     ,output [ 31:0]  ra0_value_o
     ,output [ 31:0]  rb0_value_o
+    ,output [ 31:0]  x1_debug_o
+    ,output [ 31:0]  x2_debug_o
+    ,output [ 31:0]  x3_debug_o
+    ,output [ 31:0]  x4_debug_o
+    ,output [ 31:0]  x5_debug_o
+    ,output [ 31:0]  x6_debug_o
+    ,output [ 31:0]  x7_debug_o
+    ,output [ 31:0]  x8_debug_o
+    ,output [ 31:0]  x9_debug_o
+    ,output [ 31:0]  x10_debug_o
+    ,output [ 31:0]  x11_debug_o
+    ,output [ 31:0]  x12_debug_o
+    ,output [ 31:0]  x13_debug_o
+    ,output [ 31:0]  x14_debug_o
+    ,output [ 31:0]  x15_debug_o
+    ,output [ 31:0]  x16_debug_o
+    ,output [ 31:0]  x17_debug_o
+    ,output [ 31:0]  x18_debug_o
+    ,output [ 31:0]  x19_debug_o
+    ,output [ 31:0]  x20_debug_o
+    ,output [ 31:0]  x21_debug_o
+    ,output [ 31:0]  x22_debug_o
+    ,output [ 31:0]  x23_debug_o
+    ,output [ 31:0]  x24_debug_o
+    ,output [ 31:0]  x25_debug_o
+    ,output [ 31:0]  x26_debug_o
+    ,output [ 31:0]  x27_debug_o
+    ,output [ 31:0]  x28_debug_o
+    ,output [ 31:0]  x29_debug_o
+    ,output [ 31:0]  x30_debug_o
+    ,output [ 31:0]  x31_debug_o
 );
 
 //-----------------------------------------------------------------
@@ -84,6 +115,41 @@ begin: REGFILE_XILINX_SINGLE
         ,.ra_value_o(ra0_value_o)
         ,.rb_value_o(rb0_value_o)
     );
+
+    // Debug/cosim readback bus not implemented for Xilinx primitive regfile
+    // (out of scope for this project — SUPPORT_REGFILE_XILINX=0 is the only
+    // configuration used here). Tied to zero so the module still elaborates.
+    assign x1_debug_o  = 32'b0;
+    assign x2_debug_o  = 32'b0;
+    assign x3_debug_o  = 32'b0;
+    assign x4_debug_o  = 32'b0;
+    assign x5_debug_o  = 32'b0;
+    assign x6_debug_o  = 32'b0;
+    assign x7_debug_o  = 32'b0;
+    assign x8_debug_o  = 32'b0;
+    assign x9_debug_o  = 32'b0;
+    assign x10_debug_o = 32'b0;
+    assign x11_debug_o = 32'b0;
+    assign x12_debug_o = 32'b0;
+    assign x13_debug_o = 32'b0;
+    assign x14_debug_o = 32'b0;
+    assign x15_debug_o = 32'b0;
+    assign x16_debug_o = 32'b0;
+    assign x17_debug_o = 32'b0;
+    assign x18_debug_o = 32'b0;
+    assign x19_debug_o = 32'b0;
+    assign x20_debug_o = 32'b0;
+    assign x21_debug_o = 32'b0;
+    assign x22_debug_o = 32'b0;
+    assign x23_debug_o = 32'b0;
+    assign x24_debug_o = 32'b0;
+    assign x25_debug_o = 32'b0;
+    assign x26_debug_o = 32'b0;
+    assign x27_debug_o = 32'b0;
+    assign x28_debug_o = 32'b0;
+    assign x29_debug_o = 32'b0;
+    assign x30_debug_o = 32'b0;
+    assign x31_debug_o = 32'b0;
 end
 //-----------------------------------------------------------------
 // Flop based register file
@@ -155,6 +221,40 @@ begin: REGFILE
     wire [31:0] x29_t4_w  = reg_r29_q;
     wire [31:0] x30_t5_w  = reg_r30_q;
     wire [31:0] x31_t6_w  = reg_r31_q;
+
+    // Debug/cosim readback bus (added for cosim wrapper — read-only,
+    // no functional effect)
+    assign x1_debug_o  = reg_r1_q;
+    assign x2_debug_o  = reg_r2_q;
+    assign x3_debug_o  = reg_r3_q;
+    assign x4_debug_o  = reg_r4_q;
+    assign x5_debug_o  = reg_r5_q;
+    assign x6_debug_o  = reg_r6_q;
+    assign x7_debug_o  = reg_r7_q;
+    assign x8_debug_o  = reg_r8_q;
+    assign x9_debug_o  = reg_r9_q;
+    assign x10_debug_o = reg_r10_q;
+    assign x11_debug_o = reg_r11_q;
+    assign x12_debug_o = reg_r12_q;
+    assign x13_debug_o = reg_r13_q;
+    assign x14_debug_o = reg_r14_q;
+    assign x15_debug_o = reg_r15_q;
+    assign x16_debug_o = reg_r16_q;
+    assign x17_debug_o = reg_r17_q;
+    assign x18_debug_o = reg_r18_q;
+    assign x19_debug_o = reg_r19_q;
+    assign x20_debug_o = reg_r20_q;
+    assign x21_debug_o = reg_r21_q;
+    assign x22_debug_o = reg_r22_q;
+    assign x23_debug_o = reg_r23_q;
+    assign x24_debug_o = reg_r24_q;
+    assign x25_debug_o = reg_r25_q;
+    assign x26_debug_o = reg_r26_q;
+    assign x27_debug_o = reg_r27_q;
+    assign x28_debug_o = reg_r28_q;
+    assign x29_debug_o = reg_r29_q;
+    assign x30_debug_o = reg_r30_q;
+    assign x31_debug_o = reg_r31_q;
 
     //-----------------------------------------------------------------
     // Flop based register File (for simulation)
