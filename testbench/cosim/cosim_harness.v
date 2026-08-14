@@ -1,7 +1,6 @@
 `timescale 1ns/1ps
 
-// Cosim harness: riscv_top + axi_memory_model glued together as one
-// Verilator top module, so the C++ wrapper (cosim_cpu_rtl) only deals
+// Cosim harness: riscv_top + axi_memory_model glued together as one Verilator top module, so the C++ wrapper (cosim_cpu_rtl) only deals
 // with clk/rst/intr and the debug ports - never raw AXI beats.
 //
 // STATUS: design-complete, NOT YET BUILT/ELABORATED. See
