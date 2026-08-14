@@ -287,10 +287,10 @@ void cosim_cpu_rtl::mem_write_byte(uint32_t addr, uint8_t data)
     // makes the array a plain public member on the generated C++ class,
     // reachable via the same dotted hierarchy path Verilator always uses
     // for module instances - no accessor method exists or is needed.
-    m_dut->u_top->u_imem->mem[addr >> 2] =
-        set_byte_in_word(m_dut->u_top->u_imem->mem[addr >> 2], addr & 3, data);
-    m_dut->u_top->u_dmem->mem[addr >> 2] =
-        set_byte_in_word(m_dut->u_top->u_dmem->mem[addr >> 2], addr & 3, data);
+    m_dut->cosim_harness->u_imem->mem[addr >> 2] =
+        set_byte_in_word(m_dut->cosim_harness->u_imem->mem[addr >> 2], addr & 3, data);
+    m_dut->cosim_harness->u_dmem->mem[addr >> 2] =
+        set_byte_in_word(m_dut->cosim_harness->u_dmem->mem[addr >> 2], addr & 3, data);
 }
 
 //--------------------------------------------------------------------
@@ -347,30 +347,32 @@ static bool strb_to_event_value(uint32_t strb, uint32_t data_word,
 // RESOLVED Session 7: dcache_addr_w/dcache_data_wr_w/dcache_rd_w/
 // dcache_wr_w/dcache_ack_w/dcache_data_rd_w are now `/* verilator
 // public */` in riscv_top.v (confirmed diff, lint-clean, 0 new
-// warnings). Reached via m_dut->u_top->dcache_*_w, same pattern as
-// mem_write_byte()'s access to u_imem->mem[]/u_dmem->mem[].
+// warnings). Reached via m_dut->cosim_harness->u_top->dcache_*_w, same pattern as
+// mem_write_byte()'s access to cosim_harness->u_imem->mem[]/
+// cosim_harness->u_dmem->mem[] (siblings of u_top in cosim_harness.v,
+// NOT nested inside u_top - confirmed Session 9, see below).
 //--------------------------------------------------------------------
 void cosim_cpu_rtl::maybe_push_store_event(void)
 {
-    uint32_t strb = m_dut->u_top->dcache_wr_w;
+    uint32_t strb = m_dut->cosim_harness->u_top->dcache_wr_w;
     if (strb == 0)
         return;
 
     uint32_t value;
-    if (!strb_to_event_value(strb, m_dut->u_top->dcache_data_wr_w, &value))
+    if (!strb_to_event_value(strb, m_dut->cosim_harness->u_top->dcache_data_wr_w, &value))
     {
         // strb_to_event_value already logged the specific bad pattern.
         m_fault = true;
         return;
     }
 
-    event_push(COSIM_EVENT_STORE, m_dut->u_top->dcache_addr_w, value);
+    event_push(COSIM_EVENT_STORE, m_dut->cosim_harness->u_top->dcache_addr_w, value);
 }
 
 void cosim_cpu_rtl::maybe_push_load_events(void)
 {
-    if (m_dut->u_top->dcache_rd_w)
-        event_push(COSIM_EVENT_LOAD, m_dut->u_top->dcache_addr_w, 0);
+    if (m_dut->cosim_harness->u_top->dcache_rd_w)
+        event_push(COSIM_EVENT_LOAD, m_dut->cosim_harness->u_top->dcache_addr_w, 0);
 
     // ack fires for both read and write completion; only the read case
     // produces a LOAD_RESULT. dcache_wr_w is sampled on the SAME cycle
@@ -378,6 +380,6 @@ void cosim_cpu_rtl::maybe_push_load_events(void)
     // whose wr strobe was driven when the ack asserts (single
     // outstanding request, riscv_lsu.v FSM), so this correctly
     // distinguishes a load-completion ack from a store-completion ack.
-    if (m_dut->u_top->dcache_ack_w && m_dut->u_top->dcache_wr_w == 0)
-        event_push(COSIM_EVENT_LOAD_RESULT, m_dut->u_top->dcache_data_rd_w, 0);
+    if (m_dut->cosim_harness->u_top->dcache_ack_w && m_dut->cosim_harness->u_top->dcache_wr_w == 0)
+        event_push(COSIM_EVENT_LOAD_RESULT, m_dut->cosim_harness->u_top->dcache_data_rd_w, 0);
 }

@@ -48,6 +48,20 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
+// Vcosim_harness.h only forward-declares Vcosim_harness_cosim_harness (and
+// transitively, Vcosim_harness_riscv_top / the memory-model class) — it
+// deliberately doesn't pull in their full definitions, to keep the
+// top-level model header lightweight. Since this wrapper dereferences
+// through those pointers (m_dut->cosim_harness->u_top->dcache_*_w, etc.,
+// mem_write_byte()'s ->u_imem->mem[]), the real generated class headers
+// for each level of the hierarchy are needed here too. Found Session 9
+// via "invalid use of incomplete type" at the g++ link step - Verilator
+// generates one header per module instance under obj_dir/, named after
+// the module type (not the instance name).
+#include "Vcosim_harness_cosim_harness.h"
+#include "Vcosim_harness_riscv_top.h"
+#include "Vcosim_harness_axi_memory_model__W10000.h"
+
 class cosim_cpu_rtl : public cosim_cpu_api
 {
 public:
